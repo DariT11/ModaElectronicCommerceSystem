@@ -1,10 +1,21 @@
 #pragma once
 #include "Constants.h"
+#include "MyString.h"
 using namespace Constants;
 
 class User
 {
-	char* name = nullptr;
-	char egn[EGN_LENGTH + 1]{};
+protected:
+	MyString name;
+	MyString egn;
+	MyString password;
 
+public:
+	User(const MyString& name, const MyString& egn, const MyString& password);
+
+	virtual ~User() = default;
+
+	virtual void logout();
+	virtual void help() const;
+	virtual void viewProfile() const;
 };
