@@ -24,4 +24,5 @@ public:
 
 	virtual void view() const;
 	bool isAvailable() const;
+	bool purchase(unsigned count);
 };
