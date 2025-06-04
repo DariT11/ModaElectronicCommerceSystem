@@ -127,18 +127,30 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="CheckBalanceCommand.cpp" />
+    <ClCompile Include="Client.cpp" />
+    <ClCompile Include="Command.cpp" />
+    <ClCompile Include="FinanceManager.cpp" />
     <ClCompile Include="Item.cpp" />
+    <ClCompile Include="ItemsCatalog.cpp" />
     <ClCompile Include="ModaElectronicCommerceSystem.cpp" />
     <ClCompile Include="MyString.cpp" />
     <ClCompile Include="Order.cpp" />
+    <ClCompile Include="ProductManager.cpp" />
     <ClCompile Include="User.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CheckBalanceCommand.h" />
+    <ClInclude Include="Client.h" />
+    <ClInclude Include="Command.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="FinanceManager.h" />
     <ClInclude Include="Item.h" />
+    <ClInclude Include="ItemsCatalog.h" />
     <ClInclude Include="MyString.h" />
     <ClInclude Include="MyVector.hpp" />
     <ClInclude Include="Order.h" />
+    <ClInclude Include="ProductManager.h" />
     <ClInclude Include="User.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
