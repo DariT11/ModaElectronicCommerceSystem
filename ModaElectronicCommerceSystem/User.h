@@ -9,6 +9,7 @@ protected:
 	MyString name;
 	MyString egn;
 	MyString password;
+	//MyString userType;
 
 public:
 	User(const MyString& name, const MyString& egn, const MyString& password);
