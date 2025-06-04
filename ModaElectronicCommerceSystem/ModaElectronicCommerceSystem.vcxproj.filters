@@ -27,7 +27,7 @@
     <ClCompile Include="Item.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MyVector.cpp">
+    <ClCompile Include="Order.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,8 +44,11 @@
     <ClInclude Include="Item.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MyVector.h">
+    <ClInclude Include="Order.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MyVector.hpp">
+      <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
