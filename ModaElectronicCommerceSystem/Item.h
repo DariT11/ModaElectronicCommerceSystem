@@ -13,7 +13,7 @@ protected:
 	MyString description;
 	double rating;
 	bool availability;
-	size_t salesCount;
+	size_t salesCount; //da si napravq funkciq za bestSeller
 
 	void updateAvailability();
 
@@ -23,11 +23,12 @@ public:
 	
 	virtual ~Item() = default;
 
-	virtual void view() const;
-	bool isAvailable() const;
+	virtual void view() const;//ne e zaduljitelno da sa virtualni
+	virtual void printDetails() const;
 	bool purchase(unsigned count);
 
 	//Сетъри с проверки стдексепт
+	void setName();
 
 	unsigned getId() const;
 	const MyString& getName() const;
