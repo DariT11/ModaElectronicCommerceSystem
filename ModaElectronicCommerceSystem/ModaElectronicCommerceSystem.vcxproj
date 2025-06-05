@@ -130,6 +130,8 @@
     <ClCompile Include="CheckBalanceCommand.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Command.cpp" />
+    <ClCompile Include="FilterAlphabeticallyCommand.cpp" />
+    <ClCompile Include="FilterByPriceCommand.cpp" />
     <ClCompile Include="FilterByRatingCommand.cpp" />
     <ClCompile Include="FinanceManager.cpp" />
     <ClCompile Include="Item.cpp" />
@@ -147,6 +149,8 @@
     <ClInclude Include="Client.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="FilterAlphabeticallyCommand.h" />
+    <ClInclude Include="FilterByPriceCommand.h" />
     <ClInclude Include="FilterByRatingCommand.h" />
     <ClInclude Include="FinanceManager.h" />
     <ClInclude Include="Item.h" />
