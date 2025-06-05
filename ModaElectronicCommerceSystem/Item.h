@@ -13,6 +13,7 @@ protected:
 	MyString description;
 	double rating;
 	bool available;
+	//size_t salesCount
 
 	void updateAvailability();
 
