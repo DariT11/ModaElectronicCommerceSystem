@@ -40,6 +40,7 @@ public:
 	friend std::istream& operator>>(std::istream& is, MyString& str);
 
 	MyString substr(unsigned begin, unsigned howMany);
+	bool isEmpty() const;
 };
 
 bool operator==(const MyString& lhs, const MyString& rhs);
