@@ -9,6 +9,61 @@ void Item::updateAvailability()
     availability = quantity > 0;
 }
 
+void Item::setName(const MyString& name)
+{
+    if (name.isEmpty())
+    {
+        throw invalid_argument("Name must have at least one character! Please enter new name! :)");
+    }
+
+    if (name.getSize() > 50)
+    {
+        throw invalid_argument("This name is too long! Please enter new name! :)");
+    }
+
+    this->name = name;
+}
+
+void Item::setPrice(double price)
+{
+    if (price < 0)
+    {
+        throw invalid_argument("Invalid price! Please enter new price :)");
+    }
+
+    this->price = price;
+}
+
+void Item::setQuantity(unsigned quantity)
+{
+    this->quantity = quantity;
+}
+
+void Item::setDescription(const MyString& name)
+{
+    if (name.isEmpty())
+    {
+        throw invalid_argument("Description must have at least one character! Please enter new description! :)");
+    }
+
+    if (name.getSize() > 500)
+    {
+        throw invalid_argument("This description is too long! Please enter new description! :)");
+    }
+
+    this->description = description;
+}
+
+void Item::setRating(double rating)
+{
+    if (rating < 0 || rating > 5)
+    {
+        throw invalid_argument("Invalid rating! Please rate this product with number between 0 and 5! :)");
+    }
+
+    this->rating = rating;
+}
+
 Item::Item(const MyString& name, double price, unsigned quantity, const MyString& description, double rating, size_t salesCount)
     :name(name), price(price), quantity(quantity), description(description), rating(rating), salesCount(salesCount)
 {
