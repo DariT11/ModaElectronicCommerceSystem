@@ -166,6 +166,11 @@ MyString MyString::substr(unsigned begin, unsigned howMany)
 	return res;
 }
 
+bool MyString::isEmpty() const
+{
+	return size == 0;
+}
+
 MyString operator+(const MyString& lhs, const MyString& rhs)
 {
 	MyString res(lhs);
