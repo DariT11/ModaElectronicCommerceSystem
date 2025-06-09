@@ -15,8 +15,6 @@ protected:
 	bool availability;
 	size_t salesCount; //da si napravq funkciq za bestSeller
 
-	void updateAvailability();
-
 public:
 	Item(const MyString& name, double price, unsigned quantity,
 		const MyString& description, double rating, size_t salesCount);
@@ -26,9 +24,14 @@ public:
 	virtual void view() const;//ne e zaduljitelno da sa virtualni
 	virtual void printDetails() const;
 	bool purchase(unsigned count);
+	void updateAvailability();
 
-	//Сетъри с проверки стдексепт
-	void setName();
+	void setName(const MyString& name);
+	void setPrice(double price);
+	void setQuantity(unsigned quantity);
+	void setDescription(const MyString& name);
+	void setRating(double rating);
+    //availability seter
 
 	unsigned getId() const;
 	const MyString& getName() const;
