@@ -1,0 +1,11 @@
+#pragma once
+#include "Item.h"
+
+class CartItem
+{
+public:
+	Item item;
+	unsigned quantity;
+
+	CartItem(const Item& item, unsigned quantity);
+};
