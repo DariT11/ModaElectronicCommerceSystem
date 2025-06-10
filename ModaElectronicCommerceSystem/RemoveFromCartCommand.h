@@ -10,7 +10,7 @@ class RemoveFromCartCommand : public Command
 	unsigned quantity;
 
 public:
-	RemoveFromCartCommand(Client& client, MyString& itemName, unsigned quantity);
+	RemoveFromCartCommand(Client& client, MyString& itemName, unsigned quantity); //const
 	void execute() override;
 };
 
