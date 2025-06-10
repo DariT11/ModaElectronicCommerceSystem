@@ -128,7 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AddToCartCommand.cpp" />
+    <ClCompile Include="ApplyDiscountCommand.cpp" />
+    <ClCompile Include="BusinessProfile.cpp" />
+    <ClCompile Include="Cart.cpp" />
+    <ClCompile Include="CartItem.cpp" />
     <ClCompile Include="CheckBalanceCommand.cpp" />
+    <ClCompile Include="ChekoutCommand.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="FilterAlphabeticallyCommand.cpp" />
@@ -142,13 +147,20 @@
     <ClCompile Include="Order.cpp" />
     <ClCompile Include="ProductManager.cpp" />
     <ClCompile Include="RedeemCommand.cpp" />
+    <ClCompile Include="RemoveDiscountCommand.cpp" />
     <ClCompile Include="RemoveFromCartCommand.cpp" />
     <ClCompile Include="User.cpp" />
+    <ClCompile Include="ViewCartCommand.cpp" />
     <ClCompile Include="ViewProductCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddToCartCommand.h" />
+    <ClInclude Include="ApplyDiscountCommand.h" />
+    <ClInclude Include="BusinessProfile.h" />
+    <ClInclude Include="Cart.h" />
+    <ClInclude Include="CartItem.h" />
     <ClInclude Include="CheckBalanceCommand.h" />
+    <ClInclude Include="ChekoutCommand.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="Command.h" />
     <ClInclude Include="Constants.h" />
@@ -163,9 +175,15 @@
     <ClInclude Include="Order.h" />
     <ClInclude Include="ProductManager.h" />
     <ClInclude Include="RedeemCommand.h" />
+    <ClInclude Include="RemoveDiscountCommand.h" />
     <ClInclude Include="RemoveFromCartCommand.h" />
+    <ClInclude Include="resource.h" />
     <ClInclude Include="User.h" />
+    <ClInclude Include="ViewCartCommand.h" />
     <ClInclude Include="ViewProductCommand.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="ModaElectronicCommerceSystem.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
