@@ -1,14 +1,30 @@
 #pragma once
 #include "User.h"
 #include "Cart.h"
+#include "Command.h"
 #include "MyString.h"
+#include "Role.h"
 
 class Client : public User
 {
 	unsigned points;
 	double wallet;
 	Cart cart;
+	Role role;
 
 public:
-	//Client()
+	Client(const MyString& username, const MyString& egn, const MyString& password, unsigned points, double wallet, Cart cart, Role role);
+
+	Cart& getCart();
+	double getWallet() const;
+	unsigned getPoints() const;
+	Role getRole();
+	MyString getUsername() const;
+
+	void deductFromWallet(double amount);
+	void addToWallet(double amount);
+	void deductPoints(unsigned points);
+	void addPoints(unsigned points);
+
+	void executeCommand(Command* command);
 };
