@@ -149,6 +149,7 @@
     <ClCompile Include="RedeemCommand.cpp" />
     <ClCompile Include="RemoveDiscountCommand.cpp" />
     <ClCompile Include="RemoveFromCartCommand.cpp" />
+    <ClCompile Include="Role.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="ViewCartCommand.cpp" />
     <ClCompile Include="ViewProductCommand.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="RemoveDiscountCommand.h" />
     <ClInclude Include="RemoveFromCartCommand.h" />
     <ClInclude Include="resource.h" />
+    <ClInclude Include="Role.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="ViewCartCommand.h" />
     <ClInclude Include="ViewProductCommand.h" />
