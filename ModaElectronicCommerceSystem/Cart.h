@@ -12,8 +12,6 @@ class Cart
 
 public:
 	Cart() = default;
-	Cart(const Cart&) = default;
-	Cart& operator=(const Cart&) = default;
 
 	void addItem(const Item& item, unsigned quantity);
 	void removeItem(const MyString& itemName, unsigned quantity);
