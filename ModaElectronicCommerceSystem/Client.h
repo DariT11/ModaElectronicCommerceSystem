@@ -3,7 +3,9 @@
 #include "Cart.h"
 #include "Command.h"
 #include "MyString.h"
+#include "MyVector.hpp"
 #include "Role.h"
+class Order;
 
 class Client : public User
 {
@@ -11,9 +13,10 @@ class Client : public User
 	double wallet;
 	Cart cart;
 	Role role;
+	MyVector<Order> orderHistory;
 
 public:
-	Client(const MyString& username, const MyString& egn, const MyString& password, unsigned points, double wallet, Cart cart, Role role);
+	Client(const MyString& username, const MyString& egn, const MyString& password, unsigned points, double wallet,const Cart& cart, Role role);
 
 	Cart& getCart();
 	double getWallet() const;
@@ -25,6 +28,8 @@ public:
 	void addToWallet(double amount);
 	void deductPoints(unsigned points);
 	void addPoints(unsigned points);
+
+	void placeOrder();
 
 	void executeCommand(Command* command);
 };
