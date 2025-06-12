@@ -1,8 +1,8 @@
 #pragma once
 #include <ctime>
 #include "Item.h"
-#include "Cart.h"
 #include "OrderStatus.h"
+#include "Cart.h"
 using namespace Constants;
 
 class Order
@@ -17,6 +17,7 @@ class Order
 	time_t createdAt;
 
 public:
+	Order() = default;
 	Order(const Cart& cart);
 
 	unsigned getId() const;
