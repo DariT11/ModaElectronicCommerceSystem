@@ -1,4 +1,6 @@
 #include "Order.h"
+#include "Cart.h"
+#include <ctime>
 using namespace std;
 
 unsigned Order::nextOrderId = 1;
@@ -67,7 +69,11 @@ void Order::print() const
     cout << "Îrder price: " << orderId << "BGN" << endl;
     cout << "Reward points: " << rewardPoints << endl;
     cout << "Order status: " << statusToString() << endl;
-    cout << "Order created at: " << ctime(&createdAt) << endl;
+
+    time_t now = time(nullptr);
+    char buffer[26];
+    ctime_s(buffer, sizeof(buffer), &now);
+    cout << "Order created at: " << buffer << endl;
     cout << "Order items: " << endl;
     cart.view();
 }
