@@ -71,6 +71,12 @@ Item::Item(const MyString& name, double price, unsigned quantity, const MyString
     availability = quantity > 0;
 }
 
+Item::Item(const MyString& name, const MyString& description, double price, unsigned quantity)
+    :name(name), description(description), price(price), quantity(quantity)
+{
+    
+}
+
 void Item::view() const
 {
     cout << "Item number: " << id << " | " 
