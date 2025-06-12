@@ -1,6 +1,15 @@
 #include "Client.h"
+#include "Order.h"
+#include <stdexcept>
+using namespace std;
 
-Cart& Client::getCart() 
+Client::Client(const MyString& username, const MyString& egn, const MyString& password, unsigned points, double wallet, const Cart& cart, Role role)
+    :User(username, egn, password), points(points), wallet(wallet), cart(cart), role(role)
+{
+
+}
+
+Cart& Client::getCart()
 {
     return cart;
 }
@@ -43,6 +52,23 @@ void Client::deductPoints(unsigned points)
 void Client::addPoints(unsigned points)
 {
     points += points;
+}
+
+void Client::placeOrder()
+{
+    double total = cart.calculateTotalWithDiscount();
+    if (total > wallet)
+    {
+        throw invalid_argument("Insufficient availability! Please charge! :)");
+    }
+
+    Order newOrder = cart.toOrder();
+    deductFromWallet(total);
+    orderHistory.push_back(newOrder);
+    cart.clear();
+
+    cout << "Successful order! :)" << endl;
+    cout << "Withdrawn money: " << total << " BGN" << endl;
 }
 
 void Client::executeCommand(Command* command)
