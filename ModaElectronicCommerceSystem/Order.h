@@ -1,22 +1,36 @@
 #pragma once
+#include <ctime>
 #include "Item.h"
-#include "Constants.h"
+#include "Cart.h"
+#include "OrderStatus.h"
 using namespace Constants;
-
-enum class Status 
-{
-	Pending,
-	Shipped,
-	Delivered
-};
 
 class Order
 {
-	Item* items = nullptr;
-	size_t itemsCount = 0;
-	size_t capacity = INITIAL_CAPACITY;
+	static unsigned nextOrderId;
+	unsigned orderId;
 
 	double price = 0.0;
 	unsigned rewardPoints = 0;
-	Status status;
+	Cart cart;
+	OrderStatus status;
+	time_t createdAt;
+
+public:
+	Order(const Cart& cart);
+
+	unsigned getId() const;
+	double getPrice() const;
+	unsigned getRewardPoints() const;
+	OrderStatus getOrderStatus() const;
+	time_t getCreationTime() const;
+
+	void markAsShipped();
+	void markAsDelivered();
+
+	bool isShipped() const;
+	bool isDelivered() const;
+
+	void print() const;
+	const char* statusToString() const;
 };
