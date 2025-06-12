@@ -9,9 +9,9 @@ class ItemsCatalog
 public:
 	void addItem(const Item& item);
 	const MyVector<Item>& getAllItems() const;
-	Item* getItemById(unsigned Id);
+	Item* getItemById(unsigned id);
 	void listOfItems() const;
-	void viewItem() const;
+	void viewItem(unsigned id); //const
 
 	void filterByRating();
 	void fileterByPrice();
