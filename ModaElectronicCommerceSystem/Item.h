@@ -13,12 +13,13 @@ protected:
 	MyString description;
 	double rating;
 	bool availability;
-	size_t salesCount; //da si napravq funkciq za bestSeller
+	size_t salesCount; 
 
 public:
 	Item() = default;
 	Item(const MyString& name, double price, unsigned quantity,
 		const MyString& description, double rating, size_t salesCount);
+	Item(const MyString& name, const MyString& description, double price, unsigned quantity);
 	
 	virtual ~Item() = default;
 
