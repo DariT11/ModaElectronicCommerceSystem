@@ -8,5 +8,5 @@ ViewCartCommand::ViewCartCommand(Client& client)
 
 void ViewCartCommand::execute()
 {
-	//client.getCart().view();
+	client.getCart().view();
 }
