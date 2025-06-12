@@ -1,4 +1,5 @@
 #include "Cart.h"
+#include "Order.h"
 
 void Cart::addItem(const Item& item, unsigned quantity)
 {
@@ -36,7 +37,7 @@ void Cart::clear()
 
 Order Cart::toOrder() const
 {
-    return Order();
+    return Order(*this);
 }
 
 bool Cart::isDiscountApplied() const
