@@ -145,6 +145,7 @@
     <ClCompile Include="ModaElectronicCommerceSystem.cpp" />
     <ClCompile Include="MyString.cpp" />
     <ClCompile Include="Order.cpp" />
+    <ClCompile Include="OrderStatus.cpp" />
     <ClCompile Include="ProductManager.cpp" />
     <ClCompile Include="RedeemCommand.cpp" />
     <ClCompile Include="RemoveDiscountCommand.cpp" />
@@ -174,6 +175,7 @@
     <ClInclude Include="MyString.h" />
     <ClInclude Include="MyVector.hpp" />
     <ClInclude Include="Order.h" />
+    <ClInclude Include="OrderStatus.h" />
     <ClInclude Include="ProductManager.h" />
     <ClInclude Include="RedeemCommand.h" />
     <ClInclude Include="RemoveDiscountCommand.h" />
