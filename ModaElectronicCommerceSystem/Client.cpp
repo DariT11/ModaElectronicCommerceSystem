@@ -71,6 +71,38 @@ void Client::placeOrder()
     cout << "Withdrawn money: " << total << " BGN" << endl;
 }
 
+void Client::removeOrder(unsigned orderId)
+{
+    for (size_t i = 0; i < orderHistory.getSize(); i++)
+    {
+        if (orderHistory.operator[](i).getId() == orderId)
+        {
+            orderHistory.erase(i);
+            cout << "This order has been deleted from order history! :)" << endl;
+            return;
+        }
+    }
+}
+
+void Client::requestRefund(size_t orderIndex, BusinessProfile& business)
+{
+    if (orderIndex >= orderHistory.getSize())
+    {
+        throw out_of_range("Invalid order number! :(");
+    }
+
+    Order& order = orderHistory.operator[](orderIndex);
+    if (!order.isDelivered())
+    {
+        cout << "Only delivered orders can be refunded! :)" << endl;
+        return;
+    }
+
+    business.addRefundRequest(&order);
+
+    cout << "Return request submitted! :)" << endl;
+}
+
 void Client::executeCommand(Command* command)
 {
     command->execute();
