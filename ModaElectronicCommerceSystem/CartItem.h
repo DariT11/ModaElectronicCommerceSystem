@@ -11,4 +11,5 @@ public:
 	CartItem(Item* item, unsigned quantity);
 
 	Item* getItemPointer() const;
+	unsigned getQuantity() const;
 };
