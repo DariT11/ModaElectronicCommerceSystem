@@ -168,6 +168,43 @@ void BusinessProfile::addOrder(const Order& order)
     orders.push_back(order);
 }
 
+void BusinessProfile::listRefunds() const
+{
+    if (refundRequests.empty())
+    {
+        cout << "No orders to return yet!" << endl;
+        return;
+    }
+
+    for (size_t i = 0; i < refundRequests.getSize(); i++)
+    {
+        cout << "Order: [" << i + 1 << "] ";
+        refundRequests.operator[](i)->print();
+        cout << endl;
+    }
+}
+
+void BusinessProfile::approveRefund(size_t index) const
+{
+    if (index< 0 || index >= refundRequests.getSize())
+    {
+        throw invalid_argument("Invalid number of refund request! :( Please try again!:)");
+    }
+
+    Order* order = refundRequests.operator[](index);
+    Client* client = order->getClient();
+
+    if (!client)
+    {
+        throw invalid_argument("Non-existent client! :(");
+    }
+
+    client->addToWallet(order->getPrice());
+    client->addPoints(order->getRewardPoints());
+
+    const MyVector<CartItem>& items = order->getCart().getItems();
+}
+
 void BusinessProfile::executeCommand(Command* command)
 {
     command->execute();
