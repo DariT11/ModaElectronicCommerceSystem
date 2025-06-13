@@ -184,7 +184,7 @@ void BusinessProfile::listRefunds() const
     }
 }
 
-void BusinessProfile::approveRefund(size_t index) const
+void BusinessProfile::approveRefund(size_t index) 
 {
     if (index< 0 || index >= refundRequests.getSize())
     {
@@ -203,6 +203,38 @@ void BusinessProfile::approveRefund(size_t index) const
     client->addPoints(order->getRewardPoints());
 
     const MyVector<CartItem>& items = order->getCart().getItems();
+    for (size_t i = 0; i < items.getSize(); i++)
+    {
+        Item* item = items.operator[](i).getItemPointer();
+        if (item)
+        {
+            item->increaseQuantity(items.operator[](i).getQuantity());
+        }
+    }
+
+    client->removeOrder(order->getId());
+
+    refundRequests.erase(index);
+
+    cout << "Refund request approved! :)" << endl;
+}
+
+void BusinessProfile::rejectRefund(size_t index, const MyString& reason)
+{
+    if (index >= refundRequests.getSize())
+    {
+        throw out_of_range("Invalid refund request number! :( Please try again! :)");
+    }
+
+    Order* order = refundRequests.operator[](index);
+
+    Client* client = order->getClient();
+    if (client)
+    {
+        cout << "Refund request denied, because of " << reason << ":(" << endl;
+    }
+
+    refundRequests.erase(index);
 }
 
 void BusinessProfile::executeCommand(Command* command)
