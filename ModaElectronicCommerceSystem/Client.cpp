@@ -62,7 +62,7 @@ void Client::placeOrder()
         throw invalid_argument("Insufficient availability! Please charge! :)");
     }
 
-    Order newOrder = cart.toOrder();
+    Order newOrder = cart.toOrder(this);
     deductFromWallet(total);
     orderHistory.push_back(newOrder);
     cart.clear();
