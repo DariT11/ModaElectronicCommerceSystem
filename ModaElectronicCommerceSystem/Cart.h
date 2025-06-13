@@ -3,6 +3,7 @@
 #include "MyString.h"
 #include "CartItem.h"
 class Order;
+class Client;
 
 class Cart
 {
@@ -25,7 +26,7 @@ public:
 	void view() const;
 	void clear();
 
-	Order toOrder() const;
+	Order toOrder(Client* client) const;
 
 	bool isDiscountApplied() const;
 	double getAppliedDiscount() const;
