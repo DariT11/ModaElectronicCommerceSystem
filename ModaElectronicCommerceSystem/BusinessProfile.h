@@ -38,7 +38,8 @@ public:
 	void addOrder(const Order& order);
 
 	void listRefunds() const;
-	void approveRefund(size_t index) const;
+	void approveRefund(size_t index);
+	void rejectRefund(size_t index, const MyString& reason);
 
 	virtual void executeCommand(Command* command);
 };
