@@ -30,5 +30,7 @@ public:
 
 	bool isDiscountApplied() const;
 	double getAppliedDiscount() const;
+	const MyVector<CartItem>& getItems() const;
+
 };
 
