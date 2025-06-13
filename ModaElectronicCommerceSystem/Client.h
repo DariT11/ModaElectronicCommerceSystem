@@ -5,6 +5,7 @@
 #include "MyString.h"
 #include "MyVector.hpp"
 #include "Role.h"
+#include "BusinessProfile.h"
 class Order;
 
 class Client : public User
@@ -30,6 +31,9 @@ public:
 	void addPoints(unsigned points);
 
 	void placeOrder();
+	void removeOrder(unsigned orderId);
+
+	void requestRefund(size_t orderIndex, BusinessProfile& business);
 
 	void executeCommand(Command* command);
 };
