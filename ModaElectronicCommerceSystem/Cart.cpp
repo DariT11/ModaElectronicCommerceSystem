@@ -35,9 +35,9 @@ void Cart::clear()
 {
 }
 
-Order Cart::toOrder() const
+Order Cart::toOrder(Client* client) const
 {
-    return Order(*this);
+    return Order(*this, client);
 }
 
 bool Cart::isDiscountApplied() const
