@@ -49,3 +49,8 @@ double Cart::getAppliedDiscount() const
 {
     return appliedDiscount;
 }
+
+const MyVector<CartItem>& Cart::getItems() const
+{
+    return items;
+}
