@@ -1,6 +1,11 @@
 #include "CartItem.h"
 
-CartItem::CartItem(const Item& item, unsigned quantity)
+CartItem::CartItem(Item* item, unsigned quantity)
 	:item(item), quantity(quantity)
 {
+}
+
+Item* CartItem::getItemPointer() const
+{
+	return item;
 }
