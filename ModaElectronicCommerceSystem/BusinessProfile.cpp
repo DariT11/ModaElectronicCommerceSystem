@@ -1,4 +1,5 @@
 #include "BusinessProfile.h"
+#include "Client.h"
 using namespace std;
 
 BusinessProfile::BusinessProfile(const MyString& username, const MyString& egn, const MyString& password, Role role)
@@ -90,8 +91,13 @@ void BusinessProfile::rejectOrder(size_t index, const MyString& reason)
         return;
     }
 
-    // Тук трябва да се върнат пари и точки на клиента
-    // Това може да се реализира чрез връзка към Client (ако имаш такава)
+    Client* client = order.getClient();
+    if (client)
+    {
+        client->addToWallet(order.getPrice());
+        client->addPoints(order.getRewardPoints());
+        cout << "The money and points have been returned to the client! :)";
+    }
 
     orders.erase(index);
     cout << "This order was cancelled and deleted, because of: " << reason << " :(" << endl;
