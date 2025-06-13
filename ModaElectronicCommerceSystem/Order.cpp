@@ -5,8 +5,8 @@ using namespace std;
 
 unsigned Order::nextOrderId = 1;
 
-Order::Order(const Cart& cart)
-    :orderId(nextOrderId++), cart(cart), price(cart.calculateTotalWithDiscount()), status(OrderStatus::Pending), createdAt(time(nullptr))
+Order::Order(const Cart& cart, Client* client)
+    :orderId(nextOrderId++), cart(cart),client(client), price(cart.calculateTotalWithDiscount()), status(OrderStatus::Pending), createdAt(time(nullptr))
 {
 
 }
@@ -56,6 +56,11 @@ void Order::markAsDelivered()
 bool Order::isShipped() const
 {
     return status == OrderStatus::Shipped;
+}
+
+Client* Order::getClient() const
+{
+    return client;
 }
 
 bool Order::isDelivered() const
