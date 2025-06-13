@@ -4,9 +4,11 @@
 class CartItem
 {
 public:
-	Item item;
+	Item* item;
 	unsigned quantity;
 
 	CartItem() = default;
-	CartItem(const Item& item, unsigned quantity);
+	CartItem(Item* item, unsigned quantity);
+
+	Item* getItemPointer() const;
 };
