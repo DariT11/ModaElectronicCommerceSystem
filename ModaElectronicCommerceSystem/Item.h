@@ -27,6 +27,7 @@ public:
 	virtual void printDetails() const;
 	bool purchase(unsigned count);
 	void updateAvailability();
+	void increaseQuantity(unsigned amount);
 
 	void setName(const MyString& name);
 	void setPrice(double price);
