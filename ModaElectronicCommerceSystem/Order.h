@@ -3,6 +3,7 @@
 #include "Item.h"
 #include "OrderStatus.h"
 #include "Cart.h"
+class Client;
 using namespace Constants;
 
 class Order
@@ -16,15 +17,18 @@ class Order
 	OrderStatus status;
 	time_t createdAt;
 
+	Client* client = nullptr;
+
 public:
 	Order() = default;
-	Order(const Cart& cart);
+	Order(const Cart& cart, Client* client);
 
 	unsigned getId() const;
 	double getPrice() const;
 	unsigned getRewardPoints() const;
 	OrderStatus getOrderStatus() const;
 	time_t getCreationTime() const;
+	Client* getClient() const;
 
 	void markAsShipped();
 	void markAsDelivered();
