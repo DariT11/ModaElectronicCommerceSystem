@@ -9,3 +9,8 @@ Item* CartItem::getItemPointer() const
 {
 	return item;
 }
+
+unsigned CartItem::getQuantity() const
+{
+	return quantity;
+}
