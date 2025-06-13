@@ -11,11 +11,13 @@ class BusinessProfile: public User
 {
 	MyVector<Item> items;
 	MyVector<Order> orders;
+	MyVector<Order*> refundRequests;
 	double revenue = 0.0;
 	Role role;
 
 public:
-	BusinessProfile(const MyString& username, const MyString& egn, const MyString& password, Role role = Role::Bussiness);
+	BusinessProfile(const MyString& username, const MyString& egn, const MyString& password, const MyVector<Item>& items, 
+		const MyVector<Order>& orders, const MyVector<Order*>& refundRequests, Role role = Role::Bussiness);
 
 	void addItem(const MyString& name, double price, unsigned quantity, const MyString& description);
 	void removeItem(const MyString& name);
