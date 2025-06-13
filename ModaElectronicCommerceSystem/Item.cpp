@@ -9,6 +9,11 @@ void Item::updateAvailability()
     availability = quantity > 0;
 }
 
+void Item::increaseQuantity(unsigned amount)
+{
+    quantity += amount;
+}
+
 void Item::setName(const MyString& name)
 {
     if (name.isEmpty())
