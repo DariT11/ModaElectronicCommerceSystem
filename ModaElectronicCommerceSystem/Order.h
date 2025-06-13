@@ -28,6 +28,7 @@ public:
 	unsigned getRewardPoints() const;
 	OrderStatus getOrderStatus() const;
 	time_t getCreationTime() const;
+	const Cart& getCart() const;
 	Client* getClient() const;
 
 	void markAsShipped();
