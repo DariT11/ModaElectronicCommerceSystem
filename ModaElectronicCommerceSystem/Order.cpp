@@ -63,6 +63,11 @@ Client* Order::getClient() const
     return client;
 }
 
+const Cart& Order::getCart() const
+{
+    return cart;
+}
+
 bool Order::isDelivered() const
 {
     return status == OrderStatus::Delivered;
