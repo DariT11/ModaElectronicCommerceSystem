@@ -96,6 +96,15 @@
     <ClCompile Include="OrderStatus.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Admin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Transaction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Check.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Constants.h">
@@ -183,6 +192,15 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="OrderStatus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Admin.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Transaction.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Check.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
