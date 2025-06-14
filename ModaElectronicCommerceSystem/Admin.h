@@ -17,5 +17,7 @@ public:
 	void viewTransactions() const;
 	void clientInsights(const MyVector<Client>& clients) const;
 	void addTransaction(const Transaction& transaction);
+
+	void executeCommand(Command* command);
 };
 
