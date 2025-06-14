@@ -1,7 +1,6 @@
 #include "System.h"
 #include <fstream>
 #include <iostream>
-#include <sstream>
 #include "Client.h"
 #include "Cart.h"
 #include "Role.h"
@@ -210,10 +209,10 @@ void System::load(const MyString& filename)
 		{
 			users.push_back(new Admin(username, egn, password));
 		}
-		else
+        /*else
 		{
 			cout << "invalid user!" << endl;
-		}
+		}*/
 	}
 
 	in.close();
