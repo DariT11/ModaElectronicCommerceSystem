@@ -16,6 +16,7 @@ class BusinessProfile: public User
 	Role role;
 
 public:
+	BusinessProfile(const MyString& username, const MyString& egn, const MyString& password, double revenue, Role role = Role::Bussiness);
 	BusinessProfile(const MyString& username, const MyString& egn, const MyString& password, const MyVector<Item>& items, 
 		const MyVector<Order>& orders, const MyVector<Order*>& refundRequests, Role role = Role::Bussiness);
 
