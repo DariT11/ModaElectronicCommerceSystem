@@ -128,10 +128,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="AddToCartCommand.cpp" />
+    <ClCompile Include="Admin.cpp" />
     <ClCompile Include="ApplyDiscountCommand.cpp" />
     <ClCompile Include="BusinessProfile.cpp" />
     <ClCompile Include="Cart.cpp" />
     <ClCompile Include="CartItem.cpp" />
+    <ClCompile Include="Check.cpp" />
     <ClCompile Include="CheckBalanceCommand.cpp" />
     <ClCompile Include="ChekoutCommand.cpp" />
     <ClCompile Include="Client.cpp" />
@@ -151,16 +153,19 @@
     <ClCompile Include="RemoveDiscountCommand.cpp" />
     <ClCompile Include="RemoveFromCartCommand.cpp" />
     <ClCompile Include="Role.cpp" />
+    <ClCompile Include="Transaction.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="ViewCartCommand.cpp" />
     <ClCompile Include="ViewProductCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddToCartCommand.h" />
+    <ClInclude Include="Admin.h" />
     <ClInclude Include="ApplyDiscountCommand.h" />
     <ClInclude Include="BusinessProfile.h" />
     <ClInclude Include="Cart.h" />
     <ClInclude Include="CartItem.h" />
+    <ClInclude Include="Check.h" />
     <ClInclude Include="CheckBalanceCommand.h" />
     <ClInclude Include="ChekoutCommand.h" />
     <ClInclude Include="Client.h" />
@@ -182,6 +187,7 @@
     <ClInclude Include="RemoveFromCartCommand.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Role.h" />
+    <ClInclude Include="Transaction.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="ViewCartCommand.h" />
     <ClInclude Include="ViewProductCommand.h" />
