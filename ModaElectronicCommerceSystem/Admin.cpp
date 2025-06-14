@@ -44,3 +44,8 @@ void Admin::addTransaction(const Transaction& transaction)
 {
 	transactions.push_back(transaction);
 }
+
+void Admin::executeCommand(Command* command)
+{
+	command->execute();
+}
