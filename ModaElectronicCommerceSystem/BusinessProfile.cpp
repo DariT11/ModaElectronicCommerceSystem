@@ -168,6 +168,11 @@ void BusinessProfile::addOrder(const Order& order)
     orders.push_back(order);
 }
 
+void BusinessProfile::addRefundRequest(Order* order)
+{
+    refundRequests.push_back(order);
+}
+
 void BusinessProfile::listRefunds() const
 {
     if (refundRequests.empty())
