@@ -1,6 +1,7 @@
 #pragma once
 #include "Constants.h"
 #include "MyString.h"
+class Command;
 using namespace Constants;
 
 class User
@@ -19,6 +20,9 @@ public:
 	virtual void help() const;
 	virtual void viewProfile() const;
 
-	MyString getUsername() const;
-	MyString getEgn() const;
+	const MyString& getUsername() const;
+	const MyString& getEgn() const;
+	const MyString& getPassword() const;
+
+	void executeCommand(Command* command);
 };
