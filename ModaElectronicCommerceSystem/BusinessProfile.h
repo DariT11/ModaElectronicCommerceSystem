@@ -37,6 +37,7 @@ public:
 
 	void addOrder(const Order& order);
 
+	void addRefundRequest(Order* order);
 	void listRefunds() const;
 	void approveRefund(size_t index);
 	void rejectRefund(size_t index, const MyString& reason);
