@@ -11,9 +11,9 @@ void User::viewProfile() const
 
 }
 
-void User::logout()
+void User::logÎut()
 {
-
+	
 }
 
 const MyString& User::getUsername() const
