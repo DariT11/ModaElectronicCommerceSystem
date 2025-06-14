@@ -9,6 +9,9 @@ AddToCartCommand::AddToCartCommand(Client& client, ItemsCatalog& catalog, unsign
 
 void AddToCartCommand::execute()
 {
-	/*Item item = catalog.getItemById(itemId);
-	client.getCart().addItem(item, quantity)*/
+	Item* item = catalog.getItemById(itemId);
+	if (item)
+	{
+		client.getCart().addItem(*item, quantity);
+	}
 }
