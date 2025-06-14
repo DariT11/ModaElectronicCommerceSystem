@@ -9,12 +9,14 @@
 #include "Admin.h"
 #include "MyString.h"
 #include "Command.h"
+#include "Constants.h"
+using namespace Constants;
 using namespace std;
 
 void System::start()
 {
 	load("dari.txt");
-	char buffer[1024];
+	char buffer[BUFFER_SIZE];
 
 	while (true)
 	{
@@ -26,7 +28,6 @@ void System::start()
 		{
 			cout << "Invalid command! :(" << endl;
 			cout << "Please try again! :)" << endl;
-			//ponqkakuv nachin rekursiq
 		}
 
 		if (command == "exit")
@@ -72,12 +73,12 @@ void System::start()
 		else if (currentUser)
 		{
 			//currentUser->executeCommand(new Command(command));
+			handleCommand(command);
 		}
 		else
 		{
 			cout << "Please log in first! :)" << endl;
 		}
-		handleCommand(command);
 	}
 }
 
@@ -180,7 +181,7 @@ void System::load(const MyString& filename)
 
 	for (size_t i = 0; i < count; i++)
 	{
-		char buffer[1024];//da ne e magichesko chislo
+		char buffer[BUFFER_SIZE];
 
 		in.getline(buffer, 1024);
 		MyString role(buffer);
