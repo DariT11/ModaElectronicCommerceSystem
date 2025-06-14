@@ -144,6 +144,7 @@
     <ClCompile Include="FinanceManager.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemsCatalog.cpp" />
+    <ClCompile Include="LogOutCommand.cpp" />
     <ClCompile Include="ModaElectronicCommerceSystem.cpp" />
     <ClCompile Include="MyString.cpp" />
     <ClCompile Include="Order.cpp" />
@@ -178,6 +179,7 @@
     <ClInclude Include="FinanceManager.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemsCatalog.h" />
+    <ClInclude Include="LogOutCommand.h" />
     <ClInclude Include="MyString.h" />
     <ClInclude Include="MyVector.hpp" />
     <ClInclude Include="Order.h" />
