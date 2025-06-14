@@ -16,13 +16,15 @@ public:
 
 	virtual ~User() = default;
 
-	virtual void logout();
+	virtual void logÎut(); 
 	virtual void help() const;
 	virtual void viewProfile() const;
 
 	const MyString& getUsername() const;
 	const MyString& getEgn() const;
 	const MyString& getPassword() const;
+
+	//setyri
 
 	void executeCommand(Command* command);
 };
