@@ -59,12 +59,16 @@ void System::start()
 		else if (command == "register")
 		{
 			MyString role, username, egn, password;
+			cout << "Enter type of user: ";
 			cin >> buffer;
 			role = buffer;
+			cout << "Username: ";
 			cin >> buffer;
 			username = buffer;
+			cout << "EGN: ";
 			cin >> buffer;
 			egn = buffer;
+			cout << "Password: ";
 			cin >> buffer;
 			password = buffer;
 			registerUser(role, username, egn, password);
@@ -139,7 +143,6 @@ User* System::findUserByUsername(const MyString& username)
 		}
 	}
 
-	cout << "User not found! :(" << endl;
 	return nullptr;
 }
 
@@ -171,8 +174,8 @@ void System::load(const MyString& filename)
 	
 	if (!in.is_open())
 	{
-		cout << "File did not open! " << endl; // posle shte hvurlq greshki 
-		return;
+		//cout << "File did not open! " << endl; 
+		//return;
 	}
 
 	size_t count = 0;
