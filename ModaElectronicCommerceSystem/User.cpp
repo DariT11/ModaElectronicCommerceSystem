@@ -1,4 +1,5 @@
 #include "User.h"
+#include "Command.h"
 
 User::User(const MyString& username, const MyString& egn, const MyString& password) :username(username), egn(egn), password(password)
 {
@@ -15,12 +16,22 @@ void User::logout()
 
 }
 
-MyString User::getUsername() const
+const MyString& User::getUsername() const
 {
 	return username;
 }
 
-MyString User::getEgn() const
+const MyString& User::getPassword() const
+{
+	return password;
+}
+
+void User::executeCommand(Command* command)
+{
+	command->execute();
+}
+
+const MyString& User::getEgn() const
 {
 	return egn;
 }
