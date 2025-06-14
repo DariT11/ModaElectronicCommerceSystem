@@ -2,6 +2,11 @@
 #include "Client.h"
 using namespace std;
 
+BusinessProfile::BusinessProfile(const MyString& username, const MyString& egn, const MyString& password, double revenue, Role role)
+    :User(username, egn, password), revenue(revenue), role(role)
+{
+}
+
 BusinessProfile::BusinessProfile(const MyString& username, const MyString& egn, const MyString& password, const MyVector<Item>& items,
     const MyVector<Order>& orders, const MyVector<Order*>& refundRequests, Role role)
     :User(username,egn,password), items(items), orders(orders), refundRequests(refundRequests), role(role)
