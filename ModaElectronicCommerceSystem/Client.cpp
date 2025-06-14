@@ -1,5 +1,7 @@
 #include "Client.h"
 #include "Order.h"
+#include "Transaction.h"
+#include "Admin.h"
 #include <stdexcept>
 using namespace std;
 
@@ -32,6 +34,16 @@ Role Client::getRole()
 MyString Client::getUsername() const
 {
     return User::getUsername();
+}
+
+const MyVector<Order> Client::getOrderHistory() const
+{
+    return orderHistory;
+}
+
+const MyVector<Check> Client::getReceivedChecks() const
+{
+    return receivedChecks;
 }
 
 void Client::deductFromWallet(double amount)
@@ -101,6 +113,30 @@ void Client::requestRefund(size_t orderIndex, BusinessProfile& business)
     business.addRefundRequest(&order);
 
     cout << "Return request submitted! :)" << endl;
+}
+
+void Client::addCheck(const Check& check)
+{
+    receivedChecks.push_back(check);
+}
+
+bool Client::redeemCheck(const MyString& code, Admin& admin)
+{
+    for (size_t i = 0; i < receivedChecks.getSize(); i++)
+    {
+        if (receivedChecks.operator[](i).getCode() == code)
+        {
+            double amount = receivedChecks.operator[](i).getAmount();
+            addToWallet(amount);
+            admin.addTransaction(Transaction(getEgn(), amount, "Check"));
+            receivedChecks.erase(i);
+            cout << "This check has been cashed! :)" << endl;
+            return true;
+        }
+    }
+
+    cout << "Invalid check code! :(" << endl;
+    return false;
 }
 
 void Client::executeCommand(Command* command)
