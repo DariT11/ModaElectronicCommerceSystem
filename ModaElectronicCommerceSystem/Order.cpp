@@ -8,7 +8,7 @@ unsigned Order::nextOrderId = 1;
 Order::Order(const Cart& cart, Client* client)
     :orderId(nextOrderId++), cart(cart),client(client), price(cart.calculateTotalWithDiscount()), status(OrderStatus::Pending), createdAt(time(nullptr))
 {
-
+    
 }
 
 unsigned Order::getId() const
@@ -50,7 +50,7 @@ void Order::markAsDelivered()
     {
         status = OrderStatus::Delivered;
     }
-    //da izchislq tochkite
+    rewardPoints = price * 0.05;
 }
 
 bool Order::isShipped() const
