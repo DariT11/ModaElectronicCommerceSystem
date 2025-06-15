@@ -1,6 +1,7 @@
 #pragma once
 #include "Command.h"
 #include "User.h"
+class System;
 
 class ViewProfileCommand :public Command
 {
@@ -8,6 +9,6 @@ class ViewProfileCommand :public Command
 
 public:
 	ViewProfileCommand(User* user);
-	void execute() override;
+	void execute(System& system) override;
 };
 
