@@ -4,7 +4,8 @@
 
 class FinanceManager
 {
+	Admin& admin;
 public:
 	void checkBalance(const Client& client) const;
-	void redeem(Client& client, const MyString& code) const;
+	void redeem(Client& client, const MyString& code, Admin& admin) const;
 };
