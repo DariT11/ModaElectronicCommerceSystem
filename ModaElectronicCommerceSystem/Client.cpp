@@ -3,10 +3,14 @@
 #include "Transaction.h"
 #include "Admin.h"
 #include <stdexcept>
+#include <fstream>
 using namespace std;
 
+Client::Client() : User(Role::Client)
+{}
+
 Client::Client(const MyString& username, const MyString& egn, const MyString& password, unsigned points, double wallet, const Cart& cart, Role role)
-    :User(username, egn, password), points(points), wallet(wallet), cart(cart), role(role)
+    :User(username, egn, password, role), points(points), wallet(wallet), cart(cart)
 {
 
 }
@@ -139,7 +143,21 @@ bool Client::redeemCheck(const MyString& code, Admin& admin)
     return false;
 }
 
-void Client::executeCommand(Command* command)
+void Client::executeCommand(Command* command, System& system)
 {
-    command->execute();
+    command->execute(system);
+}
+
+void Client::serialize(std::ofstream& out) const
+{
+    User::serialize(out);
+    out << wallet << endl;
+    out << points << endl;
+}
+
+void Client::deserialize(std::ifstream& in) 
+{
+    User::deserialize(in);
+    in >> wallet;
+    in >> points;
 }
