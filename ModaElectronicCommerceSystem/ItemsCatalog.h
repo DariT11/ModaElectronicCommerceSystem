@@ -11,10 +11,10 @@ public:
 	const MyVector<Item>& getAllItems() const;
 	Item* getItemById(unsigned id);
 	void listOfItems() const;
-	void viewItem(unsigned id); //const
+	void viewItem(unsigned id); 
 
 	void filterByRating();
-	void fileterByPrice();
+	void filterByPrice();
 	void filterAlphabetically();
 };
 
