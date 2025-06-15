@@ -2,6 +2,7 @@
 #include "Command.h"
 #include "Client.h"
 #include "MyString.h"
+class System;
 
 class RemoveFromCartCommand : public Command
 {
@@ -11,6 +12,6 @@ class RemoveFromCartCommand : public Command
 
 public:
 	RemoveFromCartCommand(Client& client, MyString& itemName, unsigned quantity); //const
-	void execute() override;
+	void execute(System& system) override;
 };
 
