@@ -4,6 +4,9 @@
 #include "Transaction.h"
 #include "Check.h"
 #include "Client.h"
+#include "Role.h"
+#include <fstream>
+class System;
 
 class Admin : public User
 {
@@ -11,13 +14,14 @@ class Admin : public User
 	MyVector<Check> issuedChecks;
 
 public:
-	Admin(const MyString& username, const MyString& egn, const MyString& password);
+	Admin();
+	Admin(const MyString& username, const MyString& egn, const MyString& password, Role role);
 	
 	void sendCheck(double amount, const MyString& code, Client& client);
 	void viewTransactions() const;
 	void clientInsights(const MyVector<Client>& clients) const;
 	void addTransaction(const Transaction& transaction);
 
-	void executeCommand(Command* command);
+	void executeCommand(Command* command, System& system);
 };
 
