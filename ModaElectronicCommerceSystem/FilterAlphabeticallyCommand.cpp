@@ -1,13 +1,12 @@
 #include "FilterAlphabeticallyCommand.h"
 
-FilterAlphabeticallyCommand::FilterAlphabeticallyCommand(ProductManager& pManager, Item** items, size_t itemsCount)
-	:pManager(pManager), items(items), itemsCount(itemsCount)
+FilterAlphabeticallyCommand::FilterAlphabeticallyCommand(ItemsCatalog& catalog)
+	:catalog(catalog)
 {
 
 }
 
 void FilterAlphabeticallyCommand::execute()
 {
-	pManager.filterAlphabetically(items, itemsCount);
-	pManager.listProducts(items, itemsCount);
+	catalog.filterAlphabetically();
 }
