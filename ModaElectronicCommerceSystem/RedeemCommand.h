@@ -4,6 +4,7 @@
 #include "Admin.h"
 #include "MyString.h"
 #include "FinanceManager.h"
+class System;
 
 class RedeemCommand: public Command
 {
@@ -14,6 +15,6 @@ class RedeemCommand: public Command
 
 public:
 	RedeemCommand(FinanceManager& fManager, Client& client, Admin& admin, const MyString code);
-	void execute() override;
+	void execute(System& system) override;
 };
 
