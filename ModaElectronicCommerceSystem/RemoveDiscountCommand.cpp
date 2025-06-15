@@ -5,7 +5,7 @@ RemoveDiscountCommand::RemoveDiscountCommand(Client& client)
 {
 }
 
-void RemoveDiscountCommand::execute()
+void RemoveDiscountCommand::execute(System& system)
 {
 	//client.getCart().removeDiscount(client.getPoints());
 }
