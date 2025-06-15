@@ -2,6 +2,7 @@
 #include "Command.h"
 #include "Client.h"
 #include "ItemsCatalog.h"
+class System;
 
 class AddToCartCommand: public Command
 {
@@ -12,6 +13,6 @@ class AddToCartCommand: public Command
 
 public:
 	AddToCartCommand(Client& client, ItemsCatalog& catalog, unsigned itemId, unsigned quantity);
-	void execute() override;
+	void execute(System& system) override;
 };
 
