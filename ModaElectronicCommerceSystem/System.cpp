@@ -9,6 +9,7 @@
 #include "MyString.h"
 #include "Command.h"
 #include "Constants.h"
+#include "CommandFactory.h"
 using namespace Constants;
 using namespace std;
 
@@ -19,75 +20,95 @@ void System::start()
 
 	while (true)
 	{
-		cout << "> ";
-		MyString command;
-		cin >> command;
+		try
+		{
+			cout << "> ";
+			MyString command;
+			cin >> command;
 
-		if (command.isEmpty())
-		{
-			cout << "Invalid command! :(" << endl;
-			cout << "Please try again! :)" << endl;
-		}
+			if (command.isEmpty())
+			{
+				cout << "Invalid command! :(" << endl;
+				cout << "Please try again! :)" << endl;
+			}
 
-		if (command == "exit")
-		{
-			save("dari.txt");
-			cout << "Information saved! Exit!:)" << endl;
-			break;
+			if (command == "exit")
+			{
+				save("dari.txt");
+				cout << "Information saved! Exit!:)" << endl;
+				break;
+			}
+			else if (command == "save")
+			{
+				save("dari.txt");
+				cout << "Information saved! :)" << endl;
+			}
+			else if (command == "load")
+			{
+				load("dari.txt");
+				cout << "Data reloaded! :)" << endl;
+			}
+			else if (command == "login")
+			{
+				MyString username, password;
+				cout << "Enter username: ";
+				cin >> buffer;
+				username = buffer;
+				cout << "Enter password: ";
+				cin >> buffer;
+				password = buffer;
+				logIn(username, password);
+				cin.ignore();
+			}
+			else if (command == "register")
+			{
+				MyString role, username, egn, password;
+				cout << "Enter type of user: ";
+				cin >> buffer;
+				role = buffer;
+				cout << "Username: ";
+				cin >> buffer;
+				username = buffer;
+				cout << "EGN: ";
+				cin >> buffer;
+				egn = buffer;
+				cout << "Password: ";
+				cin >> buffer;
+				password = buffer;
+				registerUser(role, username, egn, password);
+				std::cin.ignore();
+			}
+			else
+			{
+				handleCommand(command);
+			}
 		}
-		else if (command == "save")
+		catch (std::logic_error& ex) 
 		{
-			save("dari.txt");
-			cout << "Information saved! :)" << endl;
+			std::cout << ex.what() << std::endl;
 		}
-		else if (command == "load")
+		catch (std::invalid_argument& ex)
 		{
-			load("dari.txt");
-			cout << "Data reloaded! :)" << endl;
+			std::cout << ex.what() << std::endl;
 		}
-		else if (command == "login")
+		catch (std::out_of_range& ex)
 		{
-			MyString username, password;
-			cin >> buffer;
-			username = buffer;
-			cin >> buffer;
-			password = buffer;
-			logIn(username, password);
-			cin.ignore();
-		}
-		else if (command == "register")
-		{
-			MyString role, username, egn, password;
-			cout << "Enter type of user: ";
-			cin >> buffer;
-			role = buffer;
-			cout << "Username: ";
-			cin >> buffer;
-			username = buffer;
-			cout << "EGN: ";
-			cin >> buffer;
-			egn = buffer;
-			cout << "Password: ";
-			cin >> buffer;
-			password = buffer;
-			registerUser(role, username, egn, password);
-			std::cin.ignore();
-		}
-		else if (command == "logout")
-		{
-			//currentUser->executeCommand(new Command(command));
-			handleCommand(command);
-		}
-		else
-		{
-			cout << "Please log in first! :)" << endl;
+			std::cout << ex.what() << std::endl;
 		}
 	}
 }
 
-void System::handleCommand(const MyString& commandLine)
+void System::handleCommand(const MyString& command)
 {
-	//if()
+	CommandFactory& factory = CommandFactory::getInstance();
+	Command* cmd = factory.createCommand(command);
+	if (!cmd)
+	{
+		throw invalid_argument("Invalid command! :(");
+	}
+
+	cmd->execute(*this);
+	delete cmd;
 }
 
 void System::logIn(const MyString& username, const MyString& password)
@@ -95,15 +116,15 @@ void System::logIn(const MyString& username, const MyString& password)
 	User* user = findUserByUsername(username);
 	if (!user || user->getPassword() != password)
 	{
-		cout << "Wrong username or password!" << endl;
+		cout << "Wrong username or password! :(" << endl;
 		return;
 	}
 
 	currentUser = user;
-	cout << "Welcome back! :(" << endl;
+	cout << "Welcome back! :)" << endl;
 }
 
-void System::registerUser(const MyString& role, const MyString& username, const MyString& password, const MyString& egn)
+void System::registerUser(const MyString& role, const MyString& username, const MyString& egn, const MyString& password)
 {
 	if (findUserByUsername(username))
 	{
@@ -121,7 +142,7 @@ void System::registerUser(const MyString& role, const MyString& username, const 
 	}
 	else if (role == "admin")
 	{
-		users.push_back(new Admin(username, egn, password));
+		users.push_back(new Admin(username, egn, password, Role::Administrator));
 	}
 	else
 	{
@@ -159,10 +180,10 @@ void System::save(const MyString& filename) const
 
 	for (size_t i = 0; i < users.getSize(); i++)
 	{
-		out << users.operator[](i)->getUsername().c_str() << endl;
-		out << users.operator[](i)->getEgn().c_str() << endl;
-		//rolq  i parola
+		User* user = users[i];
+		user->serialize(out);
 	}
+
 
 	out.close();
 }
@@ -170,10 +191,10 @@ void System::save(const MyString& filename) const
 void System::load(const MyString& filename)
 {
 	ifstream in(filename.c_str());
-	
+
 	if (!in.is_open())
 	{
-		cout << "File did not open! " << endl; 
+		cout << "File did not open! " << endl;
 		return;
 	}
 
@@ -183,39 +204,78 @@ void System::load(const MyString& filename)
 
 	for (size_t i = 0; i < count; i++)
 	{
-		char buffer[BUFFER_SIZE];
+		int roleValue = 0;
+		in >> roleValue;
+		Role role = (Role)roleValue;
 
-		in.getline(buffer, BUFFER_SIZE);
-		MyString role(buffer);
-
-		in.getline(buffer, 1024);
-		MyString username(buffer);
-
-		in.getline(buffer, 1024);
-		MyString egn(buffer);
-
-		in.getline(buffer, 1024);
-		MyString password(buffer);
-
-		if (role == "client")
+		switch (role)
 		{
-			users.push_back(new Client(username, egn, password, 0, 0.0, Cart(), Role::Client));
+		case Role::Administrator:
+		{
+			Admin* admin = new Admin();
+			admin->deserialize(in);
+			users.push_back(admin);
+			break;
 		}
-		else if (role == "business")
+		case Role::Bussiness:
 		{
-			users.push_back(new BusinessProfile(username, egn, password, 0.0, Role::Bussiness));
+			BusinessProfile* business = new BusinessProfile();
+			business->deserialize(in);
+			users.push_back(business);
+			break;
 		}
-		else if (role == "admin")
+		case Role::Client:
 		{
-			users.push_back(new Admin(username, egn, password));
+			Client* client = new Client();
+			client->deserialize(in);
+			users.push_back(client);
+			break;
 		}
-        /*else
-		{
-			cout << "invalid user!" << endl;
-		}*/
+		}
+
+		//char buffer[BUFFER_SIZE];
+
+		//in.getline(buffer, BUFFER_SIZE);
+		//MyString role(buffer);
+
+		//in.getline(buffer, 1024);
+		//MyString username(buffer);
+
+		//in.getline(buffer, 1024);
+		//MyString egn(buffer);
+
+		//in.getline(buffer, 1024);
+		//MyString password(buffer);
+
+		//if (role == "client")
+		//{
+		//	users.push_back(new Client(username, egn, password, 0, 0.0, Cart(), Role::Client));
+		//}
+		//else if (role == "business")
+		//{
+		//	users.push_back(new BusinessProfile(username, egn, password, 0.0, Role::Bussiness));
+		//}
+		//else if (role == "admin")
+		//{
+		//	users.push_back(new Admin(username, egn, password, Role::Administrator));
+		//}
+  //      else
+		//{
+		//	//cout << "invalid user!" << endl;
+		//}
 	}
 
 	in.close();
+}
+
+User* System::getCurrentUser() const
+{
+	return currentUser;
+}
+
+void System::setCurrentUser(User* user)
+{
+	currentUser = user;
 }
 
 System::~System()
