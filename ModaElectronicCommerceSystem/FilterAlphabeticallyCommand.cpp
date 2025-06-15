@@ -6,7 +6,7 @@ FilterAlphabeticallyCommand::FilterAlphabeticallyCommand(ItemsCatalog& catalog)
 
 }
 
-void FilterAlphabeticallyCommand::execute()
+void FilterAlphabeticallyCommand::execute(System& system)
 {
 	catalog.filterAlphabetically();
 }
