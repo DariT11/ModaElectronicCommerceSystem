@@ -2,6 +2,7 @@
 #include "Command.h"
 #include "Client.h"
 #include "BusinessProfile.h"
+class System;
 
 class ChekoutCommand :public Command
 {
@@ -10,6 +11,6 @@ class ChekoutCommand :public Command
 
 public:
 	ChekoutCommand(Client& client, BusinessProfile& businessP);
-	void execute() override;
+	void execute(System& system) override;
 };
 
