@@ -1,11 +1,11 @@
 #include "FilterByPriceCommand.h"
 
-FilterByPriceCommand::FilterByPriceCommand(ItemsCatalog& catalog)
-	:catalog(catalog)
+FilterByPriceCommand::FilterByPriceCommand(ItemsCatalog& catalog, bool ascending)
+	:catalog(catalog), ascending(ascending)
 {
 }
 
-void FilterByPriceCommand::execute()
+void FilterByPriceCommand::execute(System& system)
 {
-	catalog.filterByPrice();
+	catalog.filterByPrice(ascending);
 }
