@@ -6,7 +6,7 @@ CheckBalanceCommand::CheckBalanceCommand(FinanceManager& fManager, Client& clien
 
 }
 
-void CheckBalanceCommand::execute()
+void CheckBalanceCommand::execute(System& system)
 {
 	fManager.checkBalance(client);
 }
