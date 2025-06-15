@@ -6,7 +6,7 @@ RedeemCommand::RedeemCommand(FinanceManager& fManager, Client& client, Admin& ad
 
 }
 
-void RedeemCommand::execute()
+void RedeemCommand::execute(System& system)
 {
 	fManager.redeem(client, code, admin);
 }
