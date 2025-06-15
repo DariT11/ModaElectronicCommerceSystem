@@ -1,16 +1,13 @@
 #pragma once
 #include "Command.h"
-#include "Item.h"
-#include "ProductManager.h"
+#include "ItemsCatalog.h"
 
 class FilterByRatingCommand:public Command
 {
-	ProductManager& pManager;
-	Item** items;
-	size_t itemsCount;
+	ItemsCatalog& catalog;
 
 public:
-	FilterByRatingCommand(ProductManager& pManager, Item** items, size_t itemsCount);
+	FilterByRatingCommand(ItemsCatalog& catalog);
 	void execute() override;
 };
 
