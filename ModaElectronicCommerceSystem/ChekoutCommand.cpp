@@ -9,7 +9,7 @@ ChekoutCommand::ChekoutCommand(Client& client, BusinessProfile& businessP)
 
 void ChekoutCommand::execute(System& system)
 {
-	/*double total = client.getCart().calculateTotalWithDiscount();
+	double total = client.getCart().calculateTotalWithDiscount();
 
 	if (client.getWallet() < total)
 	{
@@ -18,10 +18,10 @@ void ChekoutCommand::execute(System& system)
 	}
 
 	client.deductFromWallet(total);
-	Order order = client.getCart().toOrder();
-	businessP.receiveOrder(order);
+	//Order order = client.getCart().toOrder();
+	//businessP.receiveOrder(order);
 
-	client.getCart().clear();*/
+	client.getCart().clear();
 
 	cout << "Order sent for confirmation! Thank you:)" << endl;
 }

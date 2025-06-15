@@ -5,10 +5,7 @@
 
 class LogOutCommand: public Command
 {
-	//User* user;
-
 public:
-	//LogOutCommand(User* user);
 	void execute(System& system) override;
 };
 

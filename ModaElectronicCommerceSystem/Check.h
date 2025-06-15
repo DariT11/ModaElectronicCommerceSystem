@@ -12,7 +12,5 @@ public:
 
 	const MyString& getCode() const;
 	double getAmount() const;
-
-	//setters
 };
 

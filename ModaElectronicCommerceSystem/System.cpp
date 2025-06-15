@@ -232,37 +232,6 @@ void System::load(const MyString& filename)
 			break;
 		}
 		}
-
-		//char buffer[BUFFER_SIZE];
-
-		//in.getline(buffer, BUFFER_SIZE);
-		//MyString role(buffer);
-
-		//in.getline(buffer, 1024);
-		//MyString username(buffer);
-
-		//in.getline(buffer, 1024);
-		//MyString egn(buffer);
-
-		//in.getline(buffer, 1024);
-		//MyString password(buffer);
-
-		//if (role == "client")
-		//{
-		//	users.push_back(new Client(username, egn, password, 0, 0.0, Cart(), Role::Client));
-		//}
-		//else if (role == "business")
-		//{
-		//	users.push_back(new BusinessProfile(username, egn, password, 0.0, Role::Bussiness));
-		//}
-		//else if (role == "admin")
-		//{
-		//	users.push_back(new Admin(username, egn, password, Role::Administrator));
-		//}
-  //      else
-		//{
-		//	//cout << "invalid user!" << endl;
-		//}
 	}
 
 	in.close();

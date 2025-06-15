@@ -8,5 +8,5 @@ ApplyDiscountCommand::ApplyDiscountCommand(Client& cliet)
 
 void ApplyDiscountCommand::execute(System& system)
 {
-	//client.getCart().applyDiscount(client.getPoints());
+	//client.getCart().applyDiscount(client->getPoints());
 }

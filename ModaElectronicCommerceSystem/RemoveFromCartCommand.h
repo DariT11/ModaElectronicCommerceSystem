@@ -11,7 +11,7 @@ class RemoveFromCartCommand : public Command
 	unsigned quantity;
 
 public:
-	RemoveFromCartCommand(Client& client, MyString& itemName, unsigned quantity); //const
+	RemoveFromCartCommand(Client& client, MyString& itemName, unsigned quantity); 
 	void execute(System& system) override;
 };
 
