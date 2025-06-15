@@ -6,7 +6,7 @@ ViewCartCommand::ViewCartCommand(Client& client)
 
 }
 
-void ViewCartCommand::execute()
+void ViewCartCommand::execute(System& system)
 {
 	client.getCart().view();
 }
