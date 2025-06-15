@@ -3,7 +3,8 @@
 #include <stdexcept>
 using namespace std;
 
-User::User(const MyString& username, const MyString& egn, const MyString& password) 
+User::User(const MyString& username, const MyString& egn, const MyString& password, Role role)
+	:role(role)
 {
 	setUsername(username);
 	setEgn(egn);
@@ -55,9 +56,14 @@ void User::setPassword(const MyString& password)
 	this->password = password;
 }
 
-void User::executeCommand(Command* command)
+Role User::getRole() const
 {
-	command->execute();
+	return role;
+}
+
+void User::executeCommand(Command* command, System& system)
+{
+	command->execute(system);
 }
 
 const MyString& User::getEgn() const
@@ -79,3 +85,24 @@ void User::help() const
 {
 	cout << "Accessible commands for every user: (logout, help, view-profile)" << endl;
 }
+
+User::User(Role role)
+{
+	this->role = role;
+}
+
+void User::serialize(std::ofstream& out) const 
+{
+	out << (int)role << endl;
+	out << username << endl;
+	out << egn << endl;
+	out << password << endl;
+}
+
+void User::deserialize(std::ifstream& in)
+{
+	in >> username;
+	in >> egn;
+	in >> password;
+}
+
