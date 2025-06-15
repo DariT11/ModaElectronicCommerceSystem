@@ -73,7 +73,7 @@ void System::start()
 			registerUser(role, username, egn, password);
 			std::cin.ignore();
 		}
-		else if (currentUser)
+		else if (command == "logout")
 		{
 			//currentUser->executeCommand(new Command(command));
 			handleCommand(command);
@@ -173,8 +173,8 @@ void System::load(const MyString& filename)
 	
 	if (!in.is_open())
 	{
-		//cout << "File did not open! " << endl; 
-		//return;
+		cout << "File did not open! " << endl; 
+		return;
 	}
 
 	size_t count = 0;
@@ -185,7 +185,7 @@ void System::load(const MyString& filename)
 	{
 		char buffer[BUFFER_SIZE];
 
-		in.getline(buffer, 1024);
+		in.getline(buffer, BUFFER_SIZE);
 		MyString role(buffer);
 
 		in.getline(buffer, 1024);
