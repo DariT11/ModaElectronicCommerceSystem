@@ -14,7 +14,7 @@ public:
 	void viewItem(unsigned id); 
 
 	void filterByRating();
-	void filterByPrice();
+	void filterByPrice(bool ascending);
 	void filterAlphabetically();
 };
 
