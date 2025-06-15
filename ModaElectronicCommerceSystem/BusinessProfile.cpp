@@ -1,15 +1,20 @@
 #include "BusinessProfile.h"
 #include "Client.h"
+#include <fstream>
 using namespace std;
 
+BusinessProfile::BusinessProfile() : User(Role::Bussiness)
+{
+}
+
 BusinessProfile::BusinessProfile(const MyString& username, const MyString& egn, const MyString& password, double revenue, Role role)
-    :User(username, egn, password), revenue(revenue), role(role)
+    :User(username, egn, password, role), revenue(revenue)
 {
 }
 
 BusinessProfile::BusinessProfile(const MyString& username, const MyString& egn, const MyString& password, const MyVector<Item>& items,
     const MyVector<Order>& orders, const MyVector<Order*>& refundRequests, Role role)
-    :User(username,egn,password), items(items), orders(orders), refundRequests(refundRequests), role(role)
+    :User(username,egn,password, role), items(items), orders(orders), refundRequests(refundRequests)
 {
 
 }
@@ -247,7 +252,19 @@ void BusinessProfile::rejectRefund(size_t index, const MyString& reason)
     refundRequests.erase(index);
 }
 
-void BusinessProfile::executeCommand(Command* command)
+void BusinessProfile::executeCommand(Command* command, System& system)
 {
-    command->execute();
+    command->execute(system);
+}
+
+void BusinessProfile::serialize(std::ofstream& out) const
+{
+    User::serialize(out);
+    out << revenue << endl;
+}
+
+void BusinessProfile::deserialize(std::ifstream& in)
+{
+    User::deserialize(in);
+    in >> revenue;
 }
