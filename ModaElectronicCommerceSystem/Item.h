@@ -23,7 +23,7 @@ public:
 	
 	virtual ~Item() = default;
 
-	virtual void view() const;//ne e zaduljitelno da sa virtualni
+	virtual void view() const;
 	virtual void printDetails() const;
 	bool purchase(unsigned count);
 	void updateAvailability();
@@ -34,7 +34,7 @@ public:
 	void setQuantity(unsigned quantity);
 	void setDescription(const MyString& name);
 	void setRating(double rating);
-    //availability seter
+	void setSalesCount(size_t salesCount);
 
 	unsigned getId() const;
 	const MyString& getName() const;
