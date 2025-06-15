@@ -5,7 +5,11 @@
 
 class CommandFactory
 {
-	public:
-		static Command* createCommand(const MyString& command, User* user);
+	CommandFactory() = default;
+	CommandFactory(const CommandFactory& other) = delete;
+	CommandFactory& operator=(const CommandFactory& other) = delete;
+public:
+	static CommandFactory& getInstance();
+	static Command* createCommand(const MyString& command);
 };
 
