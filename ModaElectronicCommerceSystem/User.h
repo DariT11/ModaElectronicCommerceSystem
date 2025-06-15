@@ -20,11 +20,13 @@ public:
 	virtual void help() const;
 	virtual void viewProfile() const;
 
+	void setUsername(const MyString& username);
+	void setEgn(const MyString& egn);
+	void setPassword(const MyString& password);
+
 	const MyString& getUsername() const;
 	const MyString& getEgn() const;
 	const MyString& getPassword() const;
-
-	//setyri
 
 	void executeCommand(Command* command);
 };
