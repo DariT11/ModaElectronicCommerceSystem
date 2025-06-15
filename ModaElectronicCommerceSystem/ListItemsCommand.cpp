@@ -5,7 +5,7 @@ ListItemsCommand::ListItemsCommand(ItemsCatalog& catalog)
 {
 }
 
-void ListItemsCommand::execute()
+void ListItemsCommand::execute(System& system)
 {
 	catalog.listOfItems();
 }
