@@ -12,12 +12,14 @@ class System
 	void registerUser(const MyString& role, const MyString& username, const MyString& password, const MyString& egn);
 	User* findUserByUsername(const MyString& username);
 
-
 public:
 	void start();
 	void handleCommand(const MyString& commandLine);
 	void save(const MyString& filename) const;
 	void load(const MyString& filename);
+
+	User* getCurrentUser() const;
+	void setCurrentUser(User* user);
 
 	~System();
 };
