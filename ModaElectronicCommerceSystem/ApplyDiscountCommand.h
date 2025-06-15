@@ -1,6 +1,7 @@
 #pragma once
 #include "Command.h"
 #include "Client.h"
+class System;
 
 class ApplyDiscountCommand :public Command
 {
@@ -8,6 +9,6 @@ class ApplyDiscountCommand :public Command
 
 public:
 	ApplyDiscountCommand(Client& cliet);
-	void execute() override;
+	void execute(System& system) override;
 };
 
