@@ -6,7 +6,7 @@ RemoveFromCartCommand::RemoveFromCartCommand(Client& client,MyString& itemName, 
 
 }
 
-void RemoveFromCartCommand::execute()
+void RemoveFromCartCommand::execute(System& system)
 {
 	//client.GetCart().removeItem(itemName, quantity);
 }
