@@ -1,6 +1,7 @@
 #include "ItemsCatalog.h"
 #include "Item.h"
 #include <stdexcept>
+#include <algorithm>
 using namespace std;
 
 void ItemsCatalog::addItem(const Item& item)
@@ -44,7 +45,7 @@ void ItemsCatalog::listOfItems() const
     }
 }
 
-void ItemsCatalog::viewItem(unsigned id) 
+void ItemsCatalog::viewItem(unsigned id)
 {
     Item* item = getItemById(id);
 
@@ -64,13 +65,74 @@ void ItemsCatalog::viewItem(unsigned id)
 
 void ItemsCatalog::filterByRating()
 {
-    //items.sort()
+    if (items.getSize() == 0)
+    {
+        std::cout << "No items to sort!" << endl;
+        return;
+    }
+
+    sort(&items.operator[](0), &items.operator[](0) + items.getSize(), [](const Item& a, const Item& b)
+        {
+            return a.getRating() > b.getRating(); 
+        }
+    );
+
+    cout << "Filtered by rating (descending): " << endl;
+    for (size_t i = 0; i < items.getSize(); i++)
+    {
+        if (items.operator[](i).getAvailability())
+        {
+            items.operator[](i).printDetails();
+        }
+    }
 }
 
-void ItemsCatalog::fileterByPrice()
+void ItemsCatalog::filterByPrice()
 {
+    if (items.getSize() == 0)
+    {
+        std::cout << "No items to sort!" << endl;
+        return;
+    }
+
+    sort(&items.operator[](0), &items.operator[](0) + items.getSize(),
+        [](const Item& a, const Item& b) 
+        {
+            return a.getPrice() < b.getPrice();
+        }
+    );
+
+    cout << "Filtered by price: " << endl;
+    for (size_t i = 0; i < items.getSize(); i++)
+    {
+        if (items.operator[](i).getAvailability())
+        {
+            items.operator[](i).printDetails();
+        }
+    }
+
 }
 
 void ItemsCatalog::filterAlphabetically()
 {
+    if (items.getSize() == 0)
+    {
+        std::cout << "No items to sort!" << endl;
+        return;
+    }
+
+    sort(&items.operator[](0), &items.operator[](0) + items.getSize(), [](const Item& a, const Item& b)
+        {
+            return a.getName() > b.getName();
+        }
+    );
+
+    cout << "Filtered alphabetically: " << endl;
+    for (size_t i = 0; i < items.getSize(); i++)
+    {
+        if (items.operator[](i).getAvailability())
+        {
+            items.operator[](i).printDetails();
+        }
+    }
 }
