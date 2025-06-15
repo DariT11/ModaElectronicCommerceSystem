@@ -2,6 +2,7 @@
 #include "Command.h"
 #include "FinanceManager.h"
 #include "Client.h"
+class System;
 
 class CheckBalanceCommand :public Command
 {
@@ -10,6 +11,6 @@ class CheckBalanceCommand :public Command
 
 public:
 	CheckBalanceCommand(FinanceManager& fManager, Client& client);
-	void execute() override;
+	void execute(System& system) override;
 };
 
