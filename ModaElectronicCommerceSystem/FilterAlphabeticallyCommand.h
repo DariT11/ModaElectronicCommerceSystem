@@ -1,6 +1,7 @@
 #pragma once
 #include "Command.h"
 #include "ItemsCatalog.h"
+class System;
 
 class FilterAlphabeticallyCommand :public Command
 {
@@ -8,6 +9,6 @@ class FilterAlphabeticallyCommand :public Command
 
 public:
 	FilterAlphabeticallyCommand(ItemsCatalog& catalog);
-	void execute() override;
+	void execute(System& system) override;
 };
 
