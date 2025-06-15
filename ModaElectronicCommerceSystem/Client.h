@@ -7,6 +7,7 @@
 #include "Role.h"
 #include "BusinessProfile.h"
 #include "Check.h"
+class System;
 class Admin;
 class Order;
 
@@ -20,6 +21,7 @@ class Client : public User
 	MyVector<Check> receivedChecks;
 
 public:
+	Client();
 	Client(const MyString& username, const MyString& egn, const MyString& password, unsigned points, double wallet,const Cart& cart, Role role);
 
 	Cart& getCart();
@@ -43,5 +45,8 @@ public:
 	void addCheck(const Check& check);
 	bool redeemCheck(const MyString& code, Admin& admin);
 
-	void executeCommand(Command* command);
+	void executeCommand(Command* command, System& system);
+
+	void serialize(std::ofstream& out) const override;
+	void deserialize(std::ifstream& in) override;
 };
