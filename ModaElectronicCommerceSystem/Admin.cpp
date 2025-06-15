@@ -1,8 +1,13 @@
 #include "Admin.h"
+#include "Role.h"
 using namespace std;
 
-Admin::Admin(const MyString& username, const MyString& egn, const MyString& password)
-	:User(username,egn,password)
+Admin::Admin() : User(Role::Administrator)
+{
+}
+
+Admin::Admin(const MyString& username, const MyString& egn, const MyString& password, Role role)
+	:User(username,egn,password,role)
 {
 }
 
@@ -45,7 +50,8 @@ void Admin::addTransaction(const Transaction& transaction)
 	transactions.push_back(transaction);
 }
 
-void Admin::executeCommand(Command* command)
+void Admin::executeCommand(Command* command, System& system)
 {
-	command->execute();
+	command->execute(system);
 }
+
