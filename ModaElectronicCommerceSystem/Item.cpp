@@ -69,17 +69,35 @@ void Item::setRating(double rating)
     this->rating = rating;
 }
 
+void Item::setSalesCount(size_t salesCount)
+{
+    if (salesCount < 0)
+    {
+        throw out_of_range("Number of sales of a product cannot be negative! :)");
+    }
+
+    this->salesCount = salesCount;
+}
+
 Item::Item(const MyString& name, double price, unsigned quantity, const MyString& description, double rating, size_t salesCount)
-    :name(name), price(price), quantity(quantity), description(description), rating(rating), salesCount(salesCount)
 {
     id = nextId++;
-    availability = quantity > 0;
+    setName(name);
+    setPrice(price);
+    setQuantity(quantity);
+    setDescription(description);
+    setRating(rating);
+    updateAvailability();
+    setSalesCount(salesCount);
 }
 
 Item::Item(const MyString& name, const MyString& description, double price, unsigned quantity)
-    :name(name), description(description), price(price), quantity(quantity)
+    :id(nextId++)
 {
-    
+    setName(name);
+    setDescription(description);
+    setPrice(price);
+    setQuantity(quantity);
 }
 
 void Item::view() const
