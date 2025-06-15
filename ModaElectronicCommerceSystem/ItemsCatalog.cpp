@@ -87,7 +87,7 @@ void ItemsCatalog::filterByRating()
     }
 }
 
-void ItemsCatalog::filterByPrice()
+void ItemsCatalog::filterByPrice(bool ascending)
 {
     if (items.getSize() == 0)
     {
@@ -96,13 +96,14 @@ void ItemsCatalog::filterByPrice()
     }
 
     sort(&items.operator[](0), &items.operator[](0) + items.getSize(),
-        [](const Item& a, const Item& b) 
+        [ascending](const Item& a, const Item& b) 
         {
-            return a.getPrice() < b.getPrice();
+            return ascending ? (a.getPrice() < b.getPrice())
+            : (a.getPrice() > b.getPrice());
         }
     );
 
-    cout << "Filtered by price: " << endl;
+    cout << "Filtered by price: "  << "[" << (ascending ? "ascending" : "descending") << "]" << endl;
     for (size_t i = 0; i < items.getSize(); i++)
     {
         if (items.operator[](i).getAvailability())
