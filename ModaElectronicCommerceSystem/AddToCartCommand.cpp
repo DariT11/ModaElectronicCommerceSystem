@@ -7,7 +7,7 @@ AddToCartCommand::AddToCartCommand(Client& client, ItemsCatalog& catalog, unsign
 
 }
 
-void AddToCartCommand::execute()
+void AddToCartCommand::execute(System& system)
 {
 	Item* item = catalog.getItemById(itemId);
 	if (item)
