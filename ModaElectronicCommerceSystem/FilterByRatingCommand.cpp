@@ -5,7 +5,7 @@ FilterByRatingCommand::FilterByRatingCommand(ItemsCatalog& catalog)
 {
 }
 
-void FilterByRatingCommand::execute()
+void FilterByRatingCommand::execute(System& system)
 {
 	catalog.filterByRating();
 }
