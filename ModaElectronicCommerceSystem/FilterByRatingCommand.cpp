@@ -1,13 +1,11 @@
 #include "FilterByRatingCommand.h"
 
-FilterByRatingCommand::FilterByRatingCommand(ProductManager& pManager, Item** items, size_t itemsCount)
-	:pManager(pManager), items(items), itemsCount(itemsCount)
+FilterByRatingCommand::FilterByRatingCommand(ItemsCatalog& catalog)
+	:catalog(catalog)
 {
-
 }
 
 void FilterByRatingCommand::execute()
 {
-	pManager.filterByRating(items, itemsCount);
-	pManager.listProducts(items, itemsCount);
+	catalog.filterByRating();
 }
