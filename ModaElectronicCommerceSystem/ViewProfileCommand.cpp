@@ -4,7 +4,7 @@ ViewProfileCommand::ViewProfileCommand(User* user) :user(user)
 {
 }
 
-void ViewProfileCommand::execute()
+void ViewProfileCommand::execute(System& system)
 {
 	if (user)
 	{
