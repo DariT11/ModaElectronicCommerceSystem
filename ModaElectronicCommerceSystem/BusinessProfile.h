@@ -6,6 +6,7 @@
 #include "Order.h"
 #include "Role.h"
 #include "Command.h"
+class System;
 
 class BusinessProfile: public User
 {
@@ -16,6 +17,7 @@ class BusinessProfile: public User
 	Role role;
 
 public:
+	BusinessProfile();
 	BusinessProfile(const MyString& username, const MyString& egn, const MyString& password, double revenue, Role role = Role::Bussiness);
 	BusinessProfile(const MyString& username, const MyString& egn, const MyString& password, const MyVector<Item>& items, 
 		const MyVector<Order>& orders, const MyVector<Order*>& refundRequests, Role role = Role::Bussiness);
@@ -43,6 +45,8 @@ public:
 	void approveRefund(size_t index);
 	void rejectRefund(size_t index, const MyString& reason);
 
-	virtual void executeCommand(Command* command);
+	virtual void executeCommand(Command* command, System& system);
+	void serialize(std::ofstream& out) const override;
+	void deserialize(std::ifstream& in)override;
 };
 
