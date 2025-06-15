@@ -16,7 +16,7 @@ class Client : public User
 	double wallet;
 	Cart cart;
 	Role role;
-	MyVector<Order> orderHistory; //tova i dolnoto ne sa v konstruktura
+	MyVector<Order> orderHistory; 
 	MyVector<Check> receivedChecks;
 
 public:
