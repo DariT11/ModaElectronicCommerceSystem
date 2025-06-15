@@ -1,11 +1,9 @@
 #include "HelpCommand.h"
+#include "System.h"
 
-HelpCommand::HelpCommand(User* user) :user(user)
+void HelpCommand::execute(System& system)
 {
-}
-
-void HelpCommand::execute()
-{
+	User* user = system.getCurrentUser();
 	if (user)
 	{
 		user->help();
