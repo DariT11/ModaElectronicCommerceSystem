@@ -1,6 +1,7 @@
 #pragma once
 #include "Command.h"
 #include "Client.h"
+class System;
 
 class ViewCartCommand : public Command
 {
@@ -8,6 +9,6 @@ class ViewCartCommand : public Command
 
 public:
 	ViewCartCommand(Client& client);
-	void execute() override;
+	void execute(System& system) override;
 };
 
