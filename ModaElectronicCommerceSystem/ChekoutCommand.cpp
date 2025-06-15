@@ -7,7 +7,7 @@ ChekoutCommand::ChekoutCommand(Client& client, BusinessProfile& businessP)
 {
 }
 
-void ChekoutCommand::execute()
+void ChekoutCommand::execute(System& system)
 {
 	/*double total = client.getCart().calculateTotalWithDiscount();
 
