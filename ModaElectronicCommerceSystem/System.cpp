@@ -13,6 +13,11 @@
 using namespace Constants;
 using namespace std;
 
+System::System()
+	:admin(), fManager(admin)
+{
+}
+
 void System::start()
 {
 	load("dari.txt");
@@ -235,6 +240,21 @@ void System::load(const MyString& filename)
 	}
 
 	in.close();
+}
+
+FinanceManager& System::getFinanceManager()
+{
+	return fManager;
+}
+
+Admin& System::getAdmin()
+{
+	return admin;
+}
+
+ItemsCatalog& System::getItemsCatalog()
+{
+	return itemCatalog;
 }
 
 User* System::getCurrentUser() const

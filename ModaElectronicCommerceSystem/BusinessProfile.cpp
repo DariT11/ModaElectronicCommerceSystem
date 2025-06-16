@@ -22,7 +22,7 @@ BusinessProfile::BusinessProfile(const MyString& username, const MyString& egn, 
 void BusinessProfile::addItem(const MyString& name, double price, unsigned quantity, const MyString& description)
 {
     items.push_back(Item(name, description, price, quantity));
-    cout << "Item: " << name << "is added! :)" << endl;
+    cout << "Item: " << name << " is added! :)" << endl;
 }
 
 void BusinessProfile::removeItem(const MyString& name)

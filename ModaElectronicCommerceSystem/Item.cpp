@@ -46,10 +46,10 @@ void Item::setQuantity(unsigned quantity)
 
 void Item::setDescription(const MyString& name)
 {
-    if (name.isEmpty())
+    /*if (name.isEmpty())
     {
         throw invalid_argument("Description must have at least one character! Please enter new description! :)");
-    }
+    }*/
 
     if (name.getSize() > 500)
     {

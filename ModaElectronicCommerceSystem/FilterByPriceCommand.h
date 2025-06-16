@@ -5,11 +5,10 @@ class System;
 
 class FilterByPriceCommand: public Command
 {
-	ItemsCatalog& catalog;
 	bool ascending;
 
 public:
-	FilterByPriceCommand(ItemsCatalog& catalog, bool ascending);
+	FilterByPriceCommand(bool ascending);
 	void execute(System& system) override;
 };
 

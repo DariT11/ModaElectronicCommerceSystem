@@ -5,10 +5,8 @@ class System;
 
 class FilterAlphabeticallyCommand :public Command
 {
-	ItemsCatalog& catalog;
-
 public:
-	FilterAlphabeticallyCommand(ItemsCatalog& catalog);
+	FilterAlphabeticallyCommand();
 	void execute(System& system) override;
 };
 

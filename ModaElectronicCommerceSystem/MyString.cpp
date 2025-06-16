@@ -83,6 +83,17 @@ MyString& MyString::operator=(MyString&& other) noexcept
 	return *this;
 }
 
+static unsigned roundToPowerOfTwo(unsigned v)
+{
+	unsigned res = 1;
+	while (res < v)
+	{
+		res *= 2;
+	}
+
+	return res;
+}
+
 MyString::MyString(const char* str)
 {
 	if (!str)
@@ -91,14 +102,15 @@ MyString::MyString(const char* str)
 	}
 
 	size = strlen(str);
-	
-	if (size >= capacity)
-	{
-		resize(size*2);
-	}
-
+	capacity = roundToPowerOfTwo(size);
 	data = new char[capacity + 1] {};
 	strcpy(data, str);
+}
+
+static unsigned getMaxResizeCapacity(unsigned v)
+{
+	// we want to atleast resize with 16
+	return std::max(roundToPowerOfTwo(v), 16u); // 16u is used, because we want to return unsigned(u)
 }
 
 size_t MyString::getSize() const

@@ -1,12 +1,12 @@
 #include "FilterAlphabeticallyCommand.h"
+#include "System.h"
 
-FilterAlphabeticallyCommand::FilterAlphabeticallyCommand(ItemsCatalog& catalog)
-	:catalog(catalog)
+FilterAlphabeticallyCommand::FilterAlphabeticallyCommand()
 {
 
 }
 
 void FilterAlphabeticallyCommand::execute(System& system)
 {
-	catalog.filterAlphabetically();
+	system.getItemsCatalog().filterAlphabetically();
 }

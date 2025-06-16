@@ -5,10 +5,8 @@ class System;
 
 class FilterByRatingCommand:public Command
 {
-	ItemsCatalog& catalog;
-
 public:
-	FilterByRatingCommand(ItemsCatalog& catalog);
+	FilterByRatingCommand();
 	void execute(System& system) override;
 };
 

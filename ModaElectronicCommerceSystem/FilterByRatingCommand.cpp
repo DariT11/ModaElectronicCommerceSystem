@@ -1,11 +1,11 @@
 #include "FilterByRatingCommand.h"
+#include "System.h"
 
-FilterByRatingCommand::FilterByRatingCommand(ItemsCatalog& catalog)
-	:catalog(catalog)
+FilterByRatingCommand::FilterByRatingCommand()
 {
 }
 
 void FilterByRatingCommand::execute(System& system)
 {
-	catalog.filterByRating();
+	system.getItemsCatalog().filterByRating();
 }
