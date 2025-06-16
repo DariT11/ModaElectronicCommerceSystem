@@ -17,7 +17,6 @@ class System
 
 	void logIn(const MyString& username, const MyString& password);
 	void registerUser(const MyString& role, const MyString& username, const MyString& password, const MyString& egn);
-	User* findUserByUsername(const MyString& username);
 
 public:
 	System();
@@ -32,6 +31,8 @@ public:
 
 	User* getCurrentUser() const;
 	void setCurrentUser(User* user);
+	User* findUserByUsername(const MyString& username);
+	const MyVector<User*>& getAllUsers() const;
 
 	~System();
 };

@@ -17,6 +17,17 @@
 #include "RemoveItemCommand.h"
 #include "ListPandingOrdersCommand.h"
 #include "ApproveOrderCommand.h"
+#include "RejectOrderCommand.h"
+#include "ListOrdersCommand.h"
+#include "ListBestSellingCommand.h"
+#include "ViewRevenueCommand.h"
+#include "ListRefundCommand.h"
+#include "ApproveRefundCommand.h"
+#include "RejectRefundCommand.h"
+
+#include "SendCheckCommand.h"
+#include "CustomerInsighsCommand.h"
+#include "ViewTransactionCommand.h"
 
 using namespace std;
 
@@ -115,6 +126,61 @@ Command* CommandFactory::createCommand(const MyString& command)
         cout << "Choose order number: ";
         cin >> index;
         return new ApproveOrderCommand(index);
+    }
+    else if (command == "reject_order")
+    {
+        size_t index;
+        cout << "Choose order number: ";
+        cin >> index;
+        MyString reason;
+        cout << "Give a reason: ";
+        cin >> reason;
+        return new RejectOrderCommand(index, reason);
+    }
+    else if (command == "list_orders")
+    {
+        return new ListOrdersCommand();
+    }
+    else if (command == "list_best_selling_products")
+    {
+        return new ListBestSellingCommand();
+    }
+    else if (command == "view_revenue")
+    {
+        return new ViewRevenueCommand();
+    }
+    else if (command == "list_refunds")
+    {
+        return new ListRefundCommand();
+    }
+    else if (command == "approve_refund")
+    {
+        size_t index;
+        cout << "Choose refund number: ";
+        cin >> index;
+        return new ApproveRefundCommand(index);
+    }
+    else if (command == "reject_refund")
+    {
+        size_t index;
+        cout << "Choose refund number: ";
+        cin >> index;
+        MyString reason;
+        cout << "Give a reason: ";
+        cin >> reason;
+        return new RejectRefundCommand(index, reason);
+    }
+    else if (command == "send_check")
+    {
+        return new SendCheckCommand();
+    }
+    else if (command == "customer_insights")
+    {
+        return new CustomerInsighsCommand();
+    }
+    else if (command == "view_transactions")
+    {
+        return new ViewTransactionCommand();
     }
 
     return nullptr;

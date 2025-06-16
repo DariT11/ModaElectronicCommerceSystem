@@ -132,6 +132,7 @@
     <ClCompile Include="Admin.cpp" />
     <ClCompile Include="ApplyDiscountCommand.cpp" />
     <ClCompile Include="ApproveOrderCommand.cpp" />
+    <ClCompile Include="ApproveRefundCommand.cpp" />
     <ClCompile Include="BusinessProfile.cpp" />
     <ClCompile Include="Cart.cpp" />
     <ClCompile Include="CartItem.cpp" />
@@ -141,6 +142,7 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Command.cpp" />
     <ClCompile Include="CommandFactory.cpp" />
+    <ClCompile Include="CustomerInsighsCommand.cpp" />
     <ClCompile Include="FilterAlphabeticallyCommand.cpp" />
     <ClCompile Include="FilterByPriceCommand.cpp" />
     <ClCompile Include="FilterByRatingCommand.cpp" />
@@ -148,24 +150,32 @@
     <ClCompile Include="HelpCommand.cpp" />
     <ClCompile Include="Item.cpp" />
     <ClCompile Include="ItemsCatalog.cpp" />
+    <ClCompile Include="ListBestSellingCommand.cpp" />
     <ClCompile Include="ListItemsCommand.cpp" />
+    <ClCompile Include="ListOrdersCommand.cpp" />
     <ClCompile Include="ListPandingOrdersCommand.cpp" />
+    <ClCompile Include="ListRefundCommand.cpp" />
     <ClCompile Include="LogOutCommand.cpp" />
     <ClCompile Include="ModaElectronicCommerceSystem.cpp" />
     <ClCompile Include="MyString.cpp" />
     <ClCompile Include="Order.cpp" />
     <ClCompile Include="OrderStatus.cpp" />
     <ClCompile Include="RedeemCommand.cpp" />
+    <ClCompile Include="RejectOrderCommand.cpp" />
+    <ClCompile Include="RejectRefundCommand.cpp" />
     <ClCompile Include="RemoveDiscountCommand.cpp" />
     <ClCompile Include="RemoveFromCartCommand.cpp" />
     <ClCompile Include="RemoveItemCommand.cpp" />
     <ClCompile Include="Role.cpp" />
+    <ClCompile Include="SendCheckCommand.cpp" />
     <ClCompile Include="System.cpp" />
     <ClCompile Include="Transaction.cpp" />
     <ClCompile Include="User.cpp" />
     <ClCompile Include="ViewCartCommand.cpp" />
     <ClCompile Include="ViewProductCommand.cpp" />
     <ClCompile Include="ViewProfileCommand.cpp" />
+    <ClCompile Include="ViewRevenueCommand.cpp" />
+    <ClCompile Include="ViewTransactionCommand.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddItemCommand.h" />
@@ -173,6 +183,7 @@
     <ClInclude Include="Admin.h" />
     <ClInclude Include="ApplyDiscountCommand.h" />
     <ClInclude Include="ApproveOrderCommand.h" />
+    <ClInclude Include="ApproveRefundCommand.h" />
     <ClInclude Include="BusinessProfile.h" />
     <ClInclude Include="Cart.h" />
     <ClInclude Include="CartItem.h" />
@@ -183,6 +194,7 @@
     <ClInclude Include="Command.h" />
     <ClInclude Include="CommandFactory.h" />
     <ClInclude Include="Constants.h" />
+    <ClInclude Include="CustomerInsighsCommand.h" />
     <ClInclude Include="FilterAlphabeticallyCommand.h" />
     <ClInclude Include="FilterByPriceCommand.h" />
     <ClInclude Include="FilterByRatingCommand.h" />
@@ -190,25 +202,33 @@
     <ClInclude Include="HelpCommand.h" />
     <ClInclude Include="Item.h" />
     <ClInclude Include="ItemsCatalog.h" />
+    <ClInclude Include="ListBestSellingCommand.h" />
     <ClInclude Include="ListItemsCommand.h" />
+    <ClInclude Include="ListOrdersCommand.h" />
     <ClInclude Include="ListPandingOrdersCommand.h" />
+    <ClInclude Include="ListRefundCommand.h" />
     <ClInclude Include="LogOutCommand.h" />
     <ClInclude Include="MyString.h" />
     <ClInclude Include="MyVector.hpp" />
     <ClInclude Include="Order.h" />
     <ClInclude Include="OrderStatus.h" />
     <ClInclude Include="RedeemCommand.h" />
+    <ClInclude Include="RejectOrderCommand.h" />
+    <ClInclude Include="RejectRefundCommand.h" />
     <ClInclude Include="RemoveDiscountCommand.h" />
     <ClInclude Include="RemoveFromCartCommand.h" />
     <ClInclude Include="RemoveItemCommand.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="Role.h" />
+    <ClInclude Include="SendCheckCommand.h" />
     <ClInclude Include="System.h" />
     <ClInclude Include="Transaction.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="ViewCartCommand.h" />
     <ClInclude Include="ViewProductCommand.h" />
     <ClInclude Include="ViewProfileCommand.h" />
+    <ClInclude Include="ViewRevenueCommand.h" />
+    <ClInclude Include="ViewTransactionCommand.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="ModaElectronicCommerceSystem.rc" />

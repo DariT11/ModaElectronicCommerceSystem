@@ -1,0 +1,25 @@
+#include "RejectOrderCommand.h"
+#include "System.h"
+using namespace std;
+
+RejectOrderCommand::RejectOrderCommand(size_t index, const MyString& reason)
+	:index(index), reason(reason)
+{
+}
+
+void RejectOrderCommand::execute(System& system)
+{
+    User* user = system.getCurrentUser();
+    if (!user || user->getRole() != Role::Bussiness)
+    {
+        return;
+    }
+
+    BusinessProfile* business = dynamic_cast<BusinessProfile*>(user);
+    if (!business)
+    {
+        cout << "Error: Current user is not a business profile! :(" << endl;
+        return;
+    }
+    business->rejectOrder(index, reason);
+}

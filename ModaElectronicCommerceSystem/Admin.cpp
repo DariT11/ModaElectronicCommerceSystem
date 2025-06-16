@@ -41,7 +41,7 @@ void Admin::clientInsights(const MyVector<Client>& clients) const
 		{
 			totalSpent += cl.getOrderHistory().operator[](j).getPrice();
 		}
-		cout << "Total money spent: " << totalSpent << "BGN" << endl;
+		cout << "Total money spent: " << totalSpent << " BGN" << endl;
 	}
 }
 

@@ -171,6 +171,11 @@ User* System::findUserByUsername(const MyString& username)
 	return nullptr;
 }
 
+const MyVector<User*>& System::getAllUsers() const
+{
+	return users;
+}
+
 void System::save(const MyString& filename) const
 {
 	ofstream out(filename.c_str());
