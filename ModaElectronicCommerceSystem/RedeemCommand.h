@@ -8,13 +8,8 @@ class System;
 
 class RedeemCommand: public Command
 {
-	FinanceManager& fManager;
-	Client& client;
-	Admin& admin;
-	MyString code;
-
 public:
-	RedeemCommand(FinanceManager& fManager, Client& client, Admin& admin, const MyString code);
+	RedeemCommand();
 	void execute(System& system) override;
 };
 

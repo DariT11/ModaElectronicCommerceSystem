@@ -6,11 +6,8 @@ class System;
 
 class CheckBalanceCommand :public Command
 {
-	FinanceManager& fManager;
-	Client& client;
-
 public:
-	CheckBalanceCommand(FinanceManager& fManager, Client& client);
+	CheckBalanceCommand();
 	void execute(System& system) override;
 };
 

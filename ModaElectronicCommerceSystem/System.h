@@ -2,6 +2,7 @@
 #include "MyVector.hpp"
 #include "MyString.h"
 #include "User.h"
+#include "FinanceManager.h"
 
 class System
 {

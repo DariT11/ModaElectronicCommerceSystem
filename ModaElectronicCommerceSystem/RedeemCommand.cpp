@@ -1,12 +1,17 @@
 #include "RedeemCommand.h"
+#include "System.h"
 
-RedeemCommand::RedeemCommand(FinanceManager& fManager, Client& client, Admin& admin, const MyString code)
-	:fManager(fManager), client(client), admin(admin), code(code)
+RedeemCommand::RedeemCommand()
 {
 
 }
 
 void RedeemCommand::execute(System& system)
 {
-	fManager.redeem(client, code, admin);
+    Client* client = dynamic_cast<Client*>(system.getCurrentUser());
+    if (!client)
+    {
+        std::cerr << "You must be logged in as a client to redeem a check!" << std::endl;
+        return;
+    }
 }
