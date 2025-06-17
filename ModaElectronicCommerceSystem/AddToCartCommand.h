@@ -6,13 +6,11 @@ class System;
 
 class AddToCartCommand: public Command
 {
-	Client& client;
-	ItemsCatalog& catalog;
 	unsigned itemId;
 	unsigned quantity;
 
 public:
-	AddToCartCommand(Client& client, ItemsCatalog& catalog, unsigned itemId, unsigned quantity);
+	AddToCartCommand(unsigned itemId, unsigned quantity);
 	void execute(System& system) override;
 };
 

@@ -12,6 +12,7 @@
 #include "FilterByPriceCommand.h"
 #include "FilterAlphabeticallyCommand.h"
 #include "ViewProductCommand.h"
+#include "AddToCartCommand.h"
 
 #include "AddItemCommand.h"
 #include "RemoveItemCommand.h"
@@ -181,6 +182,16 @@ Command* CommandFactory::createCommand(const MyString& command)
     else if (command == "view_transactions")
     {
         return new ViewTransactionCommand();
+    }
+    else if (command == "add_to_cart")
+    {
+        unsigned itemId;
+        cout << "Choose item number: ";
+        cin >> itemId;
+        unsigned quantity;
+        cout << "Choose quantity: ";
+        cin >> quantity;
+        return new AddToCartCommand(itemId, quantity);
     }
 
     return nullptr;

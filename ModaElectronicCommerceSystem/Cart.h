@@ -14,7 +14,7 @@ class Cart
 public:
 	Cart() = default;
 
-	void addItem(const Item& item, unsigned quantity);
+	void addItem(Item& item, unsigned quantity);
 	void removeItem(const MyString& itemName, unsigned quantity);
 
 	double calculateTotalWithDiscount() const;

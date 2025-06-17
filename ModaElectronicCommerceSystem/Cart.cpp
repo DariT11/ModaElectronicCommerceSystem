@@ -1,7 +1,7 @@
 #include "Cart.h"
 #include "Order.h"
 
-void Cart::addItem(const Item& item, unsigned quantity)
+void Cart::addItem(Item& item, unsigned quantity)
 {
     if (!item.getAvailability())
     {
@@ -25,12 +25,32 @@ void Cart::addItem(const Item& item, unsigned quantity)
         }
     }
 
-    //items.push_back(CartItem(&item, quantity));
+    items.push_back(CartItem(&item, quantity));
     std::cout << "Item added to cart." << std::endl;
 }
 
 void Cart::removeItem(const MyString& itemName, unsigned quantity)
 {
+    for (size_t i = 0; i < items.getSize(); ++i)
+    {
+        CartItem& cartItem = items[i];
+        if (cartItem.getItemPointer()->getName() == itemName)
+        {
+            if (quantity >= cartItem.getQuantity())
+            {
+                items.erase(i);
+                std::cout << "Item removed completely from cart." << std::endl;
+            }
+            else
+            {
+                cartItem.decreaseQuantity(quantity);
+                std::cout << "Item quantity reduced in cart." << std::endl;
+            }
+            return;
+        }
+    }
+
+    std::cout << "Item not found in cart!" << std::endl;
 }
 
 double Cart::calculateTotalWithDiscount() const

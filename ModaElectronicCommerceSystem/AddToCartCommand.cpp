@@ -1,17 +1,35 @@
 #include "AddToCartCommand.h"
 #include "Item.h"
+#include "System.h"
 
-AddToCartCommand::AddToCartCommand(Client& client, ItemsCatalog& catalog, unsigned itemId, unsigned quantity)
-	:client(client), catalog(catalog), itemId(itemId), quantity(quantity)
+AddToCartCommand::AddToCartCommand(unsigned itemId, unsigned quantity)
+	:itemId(itemId), quantity(quantity)
 {
 
 }
 
 void AddToCartCommand::execute(System& system)
 {
-	Item* item = catalog.getItemById(itemId);
-	if (item)
+	User* user = system.getCurrentUser();
+	if (!user || user->getRole() != Role::Client)
 	{
-		client.getCart().addItem(*item, quantity);
+		std::cout << "Only logged-in clients can add items to the cart!" << std::endl;
+		return;
 	}
+
+	Client* client = dynamic_cast<Client*>(user);
+	if (!client)
+	{
+		std::cout << "Error: Current user is not a client profile!" << std::endl;
+		return;
+	}
+
+	Item* item = system.getItemsCatalog().getItemById(itemId);
+	if (!item)
+	{
+		std::cout << "Item with ID " << itemId << " not found!" << std::endl;
+		return;
+	}
+
+	client->getCart().addItem(*item, quantity);
 }
